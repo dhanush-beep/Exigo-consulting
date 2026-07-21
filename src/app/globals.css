@@ -1,0 +1,450 @@
+@import "tailwindcss";
+
+@theme {
+  /* === PRIMARY BRAND COLORS === */
+  --color-primary: #0F6B82;
+  --color-primary-hover: #155B6D;
+  --color-accent: #DE7A66;
+  --color-accent-hover: #C96958;
+
+  /* === BACKGROUNDS === */
+  --color-bg-white: #FFFFFF;
+  --color-bg-secondary: #F7F9FA;
+  --color-bg-dark: #102A35;
+
+  /* === TEXT === */
+  --color-text-primary: #1B2730;
+  --color-text-secondary: #6C7A86;
+  --color-text-white: #FFFFFF;
+
+  /* === BORDERS === */
+  --color-border: #E5EBEF;
+  --color-border-teal: #0F6B82;
+
+  /* === STATUS === */
+  --color-success: #1BA672;
+  --color-warning: #F4A340;
+  --color-error: #D9534F;
+
+  /* === TEAL SCALE === */
+  --color-teal-50: #f0f9fb;
+  --color-teal-100: #d9eff5;
+  --color-teal-200: #aed9e3;
+  --color-teal-300: #74bece;
+  --color-teal-400: #3a9fb7;
+  --color-teal-500: #0F6B82;
+  --color-teal-600: #155B6D;
+  --color-teal-700: #0d4a5a;
+  --color-teal-800: #0b3a48;
+  --color-teal-900: #102A35;
+  --color-teal-950: #081820;
+
+  /* === CORAL SCALE === */
+  --color-coral-100: #fdf0ed;
+  --color-coral-200: #f9d4cc;
+  --color-coral-400: #e89a89;
+  --color-coral-500: #DE7A66;
+  --color-coral-600: #C96958;
+  --color-coral-700: #b35847;
+
+  /* === NAVY & GOLD ALIASES === */
+  --color-navy-950: #081820;
+  --color-navy-900: #102A35;
+  --color-navy-850: #153A47;
+  --color-navy-800: #1B4454;
+  --color-gold-400: #0F6B82;
+  --color-gold-500: #0F6B82;
+  --color-gold-600: #155B6D;
+
+  /* === FONTS === */
+  --font-sans: var(--font-inter), 'Inter', sans-serif;
+  --font-display: var(--font-outfit), 'Outfit', sans-serif;
+
+  /* === SHADOWS === */
+  --shadow-card: 0 2px 12px 0 rgba(15, 107, 130, 0.06), 0 1px 3px 0 rgba(27, 39, 48, 0.06);
+  --shadow-card-hover: 0 12px 40px -8px rgba(15, 107, 130, 0.18), 0 4px 12px 0 rgba(27, 39, 48, 0.08);
+  --shadow-button: 0 4px 14px 0 rgba(15, 107, 130, 0.3);
+
+  /* === ANIMATIONS === */
+  --animate-fade-up: fade-up 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.8s ease-out forwards;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-pulse-slow: pulse-slow 4s ease-in-out infinite;
+  --animate-scroll: logo-scroll 30s linear infinite;
+}
+
+/* === KEYFRAMES === */
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(60px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  33% { transform: translateY(-12px) rotate(1deg); }
+  66% { transform: translateY(-6px) rotate(-1deg); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 0.5; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes logo-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes counter-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === ROOT VARIABLES === */
+:root {
+  --background: #FFFFFF;
+  --foreground: #1B2730;
+  --primary: #0F6B82;
+  --primary-hover: #155B6D;
+  --accent: #DE7A66;
+  --accent-hover: #C96958;
+  --secondary-bg: #F7F9FA;
+  --dark-bg: #102A35;
+  --border: #E5EBEF;
+  --text-primary: #1B2730;
+  --text-secondary: #6C7A86;
+}
+
+/* === BASE STYLES === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-display), 'Inter', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* === CUSTOM SCROLLBAR === */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #F7F9FA; }
+::-webkit-scrollbar-thumb { background: #C5D5DC; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #0F6B82; }
+
+/* === SELECTION === */
+::selection {
+  background: rgba(15, 107, 130, 0.15);
+  color: #0F6B82;
+}
+
+/* === ENTERPRISE CARD === */
+.enterprise-card {
+  background: #FFFFFF;
+  border: 1px solid #E5EBEF;
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.enterprise-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: #0F6B82;
+}
+
+/* === HERO GRID BACKGROUND === */
+.hero-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 107, 130, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 107, 130, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* === TEAL ICON WRAPPER === */
+.icon-teal {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  border-radius: 16px;
+  background: rgba(15, 107, 130, 0.08);
+  border: 1px solid rgba(15, 107, 130, 0.15);
+  color: #0F6B82;
+  transition: all 0.3s ease;
+}
+
+.enterprise-card:hover .icon-teal {
+  background: #0F6B82;
+  color: #ffffff;
+  border-color: #0F6B82;
+}
+
+/* === ANIMATED ARROW === */
+.arrow-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #0F6B82;
+  font-size: 14px;
+  font-weight: 500;
+  transition: gap 0.3s ease, color 0.3s ease;
+}
+
+.arrow-link:hover {
+  gap: 10px;
+  color: #155B6D;
+}
+
+/* === GLASS PANEL (kept for dark sections) === */
+.glass-dark {
+  background: rgba(16, 42, 53, 0.8);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+/* === SECTION FADE ANIMATION === */
+.animate-section {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.animate-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* === STAGGER CHILDREN === */
+.stagger-children > * {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stagger-children.is-visible > *:nth-child(1) { opacity: 1; transform: none; transition-delay: 0ms; }
+.stagger-children.is-visible > *:nth-child(2) { opacity: 1; transform: none; transition-delay: 80ms; }
+.stagger-children.is-visible > *:nth-child(3) { opacity: 1; transform: none; transition-delay: 160ms; }
+.stagger-children.is-visible > *:nth-child(4) { opacity: 1; transform: none; transition-delay: 240ms; }
+.stagger-children.is-visible > *:nth-child(5) { opacity: 1; transform: none; transition-delay: 320ms; }
+.stagger-children.is-visible > *:nth-child(6) { opacity: 1; transform: none; transition-delay: 400ms; }
+.stagger-children.is-visible > *:nth-child(7) { opacity: 1; transform: none; transition-delay: 480ms; }
+.stagger-children.is-visible > *:nth-child(8) { opacity: 1; transform: none; transition-delay: 560ms; }
+
+/* === LOGO SCROLL === */
+.logo-scroll-track {
+  display: flex;
+  width: max-content;
+  animation: logo-scroll 30s linear infinite;
+}
+
+.logo-scroll-track:hover {
+  animation-play-state: paused;
+}
+
+/* === FLOATING GEO SHAPES === */
+.geo-shape {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}
+
+/* === COUNTER ANIMATION === */
+.counter-animate {
+  animation: counter-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* === HERO BUTTON === */
+.btn-primary-enterprise {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #0F6B82;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: var(--shadow-button);
+}
+
+.btn-primary-enterprise:hover {
+  background: #155B6D;
+  transform: scale(1.03);
+  box-shadow: 0 8px 24px 0 rgba(15, 107, 130, 0.4);
+}
+
+.btn-primary-enterprise:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+.btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.btn-secondary-enterprise {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #ffffff;
+  color: #0F6B82;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 2px solid #0F6B82;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-secondary-enterprise:hover {
+  background: #0F6B82;
+  color: #ffffff;
+}
+
+/* === DARK CTA BUTTON (Coral) === */
+.btn-coral {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #DE7A66;
+  color: #ffffff;
+  border-radius: 9999px;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.btn-coral:hover {
+  background: #C96958;
+  transform: scale(1.03);
+}
+
+/* === INPUT FOCUS === */
+.enterprise-input {
+  border: 1.5px solid #E5EBEF;
+  border-radius: 14px;
+  padding: 14px 18px;
+  font-size: 15px;
+  color: #1B2730;
+  background: #FFFFFF;
+  outline: none;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.enterprise-input:focus {
+  border-color: #0F6B82;
+  box-shadow: 0 0 0 3px rgba(15, 107, 130, 0.12);
+}
+
+.enterprise-input::placeholder {
+  color: #6C7A86;
+}
+
+/* === ACCORDION === */
+.enterprise-accordion-item {
+  border-bottom: 1px solid #E5EBEF;
+  transition: all 0.3s ease;
+}
+
+.enterprise-accordion-item:first-child {
+  border-top: 1px solid #E5EBEF;
+}
+
+/* === TESTIMONIAL CARD === */
+.testimonial-card {
+  background: #FFFFFF;
+  border: 1px solid #E5EBEF;
+  border-radius: 24px;
+  box-shadow: var(--shadow-card);
+  transition: all 0.4s ease;
+}
+
+/* === FOOTER LINK === */
+.footer-link {
+  color: rgba(255,255,255,0.6);
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #0F6B82;
+}
+
+/* === STAT CARD === */
+.stat-card {
+  background: #FFFFFF;
+  border: 1px solid #E5EBEF;
+  border-radius: 20px;
+  box-shadow: var(--shadow-card);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: #0F6B82;
+}
+
+/* === BADGE === */
+.enterprise-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  background: rgba(15, 107, 130, 0.08);
+  border: 1px solid rgba(15, 107, 130, 0.2);
+  color: #0F6B82;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+
+/* === SECTION LABEL === */
+.section-label {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #0F6B82;
+  margin-bottom: 12px;
+}
+
+/* === DIVIDER LINE === */
+.teal-line {
+  display: block;
+  width: 40px;
+  height: 3px;
+  background: #0F6B82;
+  border-radius: 2px;
+  margin-bottom: 16px;
+}
+
+/* === PAGE TRANSITION === */
+.page-transition {
+  animation: fade-in 0.4s ease-out;
+}
