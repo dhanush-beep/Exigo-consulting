@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
 import LinkedinIcon from "../ui/LinkedinIcon";
 import { siteConfig } from "@/lib/metadata";
@@ -52,18 +53,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
           {/* Brand Column */}
           <div className="flex flex-col gap-5">
-            <Link href="/" className="flex items-center gap-2.5 group">
-              <div className="w-9 h-9 rounded-[10px] bg-[#0F6B82] flex items-center justify-center font-bold text-white text-lg shadow-[0_4px_12px_0_rgba(15,107,130,0.35)]">
-                E
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="font-bold text-[18px] text-[#1B2730] tracking-tight" style={{ fontFamily: "var(--font-outfit), sans-serif" }}>
-                  EXIGO
-                </span>
-                <span className="text-[10px] font-medium tracking-[0.18em] text-[#0F6B82] uppercase">
-                  CONSULTING
-                </span>
-              </div>
+            <Link href="/" className="inline-block group transition-transform duration-300 hover:scale-[1.02]">
+              <Image
+                src="/logo.png"
+                alt="Exigo Consulting Logo"
+                width={180}
+                height={64}
+                className="h-10 w-auto object-contain"
+              />
             </Link>
             <p className="text-[#6C7A86] leading-relaxed text-[14px]">
               High-caliber corporate advisory, M&amp;A oversight, institutional fundraising, and executive recruiting for enterprises poised for market leadership.

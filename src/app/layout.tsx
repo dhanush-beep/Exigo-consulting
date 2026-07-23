@@ -4,6 +4,7 @@ import "./globals.css";
 import TopBar from "@/components/layout/TopBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import FloatingChatWidget from "@/components/ui/FloatingChatWidget";
 import { siteConfig } from "@/lib/metadata";
 
 const inter = Inter({
@@ -25,7 +26,14 @@ export const metadata: Metadata = {
   },
   description: siteConfig.description,
   icons: {
-    icon: "/favicon.ico"
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png", sizes: "32x32" },
+      { url: "/logo-icon.png", type: "image/png" }
+    ],
+    apple: [
+      { url: "/apple-icon.png", sizes: "180x180", type: "image/png" }
+    ]
   }
 };
 
@@ -44,6 +52,7 @@ export default function RootLayout({
         <Header />
         <main className="flex-grow">{children}</main>
         <Footer />
+        <FloatingChatWidget />
       </body>
     </html>
   );

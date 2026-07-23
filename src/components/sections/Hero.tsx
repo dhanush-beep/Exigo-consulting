@@ -1,44 +1,41 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
+import React from "react";
 import Link from "next/link";
-import { ArrowRight, ShieldCheck, Award, Globe, TrendingUp } from "lucide-react";
+import { ArrowRight, ShieldCheck, Award, Globe, TrendingUp, Sparkles, Layers, BarChart3, Briefcase } from "lucide-react";
 import Container from "../ui/Container";
+import ParallaxReveal from "../ui/ParallaxReveal";
+import DissolveEffect from "../ui/DissolveEffect";
+import TiltCard from "../ui/TiltCard";
 
 export default function Hero() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const timer = setTimeout(() => {
-      el.classList.add("is-visible");
-    }, 100);
-    return () => clearTimeout(timer);
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-white"
-    >
-      {/* Subtle Hero Grid */}
-      <div className="absolute inset-0 hero-grid opacity-60 pointer-events-none" />
+    <section className="relative min-h-[92vh] flex items-center justify-center overflow-hidden bg-white">
+      {/* Clean Ambient Background */}
+
+      {/* Interactive Particle Dissolve Effect Background */}
+      <DissolveEffect />
 
       {/* Radial background glow */}
-      <div className="absolute inset-0 pointer-events-none">
+      <div className="absolute inset-0 pointer-events-none z-0">
         <div
-          className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, rgba(15,107,130,0.15) 0%, transparent 70%)", animation: "pulse-slow 8s ease-in-out infinite" }}
+          className="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] rounded-full opacity-25"
+          style={{
+            background: "radial-gradient(circle, rgba(15,107,130,0.18) 0%, transparent 70%)",
+            animation: "pulse-slow 8s ease-in-out infinite",
+          }}
         />
         <div
           className="absolute bottom-[-5%] left-[-8%] w-[500px] h-[500px] rounded-full opacity-20"
-          style={{ background: "radial-gradient(circle, rgba(222,122,102,0.12) 0%, transparent 70%)", animation: "pulse-slow 10s ease-in-out infinite 2s" }}
+          style={{
+            background: "radial-gradient(circle, rgba(222,122,102,0.15) 0%, transparent 70%)",
+            animation: "pulse-slow 10s ease-in-out infinite 2s",
+          }}
         />
       </div>
 
       {/* Floating geometric shapes */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
         {/* Teal shapes */}
         <div
           className="geo-shape w-12 h-12 border-2 border-[#0F6B82]/20 rounded-full"
@@ -67,70 +64,93 @@ export default function Hero() {
         />
       </div>
 
-      <Container className="relative z-10 text-center flex flex-col items-center py-20">
-        {/* Badge */}
-        <div
-          className="enterprise-badge mb-8"
-          style={{ animation: "fade-up 0.7s cubic-bezier(0.16,1,0.3,1) 0.1s both" }}
-        >
-          <Award className="w-3.5 h-3.5" />
-          <span>Premier Enterprise Advisory · 20+ Years of Proven Results</span>
-        </div>
-
-        {/* Main Heading */}
+      <Container className="relative z-10 text-center flex flex-col items-center py-16 sm:py-20">
+        {/* Main Heading: Page Load Refresh Animation */}
         <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[82px] font-[800] text-[#1B2730] tracking-tight max-w-5xl leading-[1.08] mb-7"
-          style={{ fontFamily: "var(--font-outfit), sans-serif", animation: "fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.2s both" }}
+          className="text-5xl sm:text-6xl md:text-7xl lg:text-[82px] font-[800] tracking-tight max-w-5xl leading-[1.08] mb-7 select-none"
+          style={{ fontFamily: "var(--font-outfit), sans-serif" }}
         >
-          Strategic M&amp;A Solutions
+          <div className="relative inline-block">
+            {/* Step 1: Hollow stroke wireframe base appears first (0ms) */}
+            <span
+              className="inline-block animate-title-stroke"
+              style={{
+                WebkitTextStroke: "1.5px #1B2730",
+                color: "transparent",
+              }}
+            >
+              Strategic M&amp;A Solutions
+            </span>
+            {/* Step 2: Smooth 2.4s solid fill sweep + 45° 3D drop shadow overlay (delayed 600ms) */}
+            <span
+              className="absolute inset-0 inline-block animate-title-fill opacity-0"
+              style={{
+                color: "#1B2730",
+                animationDelay: "600ms",
+              }}
+            >
+              Strategic M&amp;A Solutions
+            </span>
+          </div>
+
           <br />
-          <span className="text-[#0F6B82]">for Growth</span>
+
+          <div className="relative inline-block mt-1">
+            {/* Step 1b: Teal hollow stroke wireframe base appears first (200ms) */}
+            <span
+              className="inline-block animate-title-stroke opacity-0"
+              style={{
+                WebkitTextStroke: "1.5px #0F6B82",
+                color: "transparent",
+                animationDelay: "200ms",
+              }}
+            >
+              For Scale &amp; Growth
+            </span>
+            {/* Step 2b: Smooth 2.4s teal solid fill sweep (delayed 800ms) */}
+            <span
+              className="absolute inset-0 inline-block animate-title-fill opacity-0 text-[#0F6B82]"
+              style={{
+                animationDelay: "800ms",
+              }}
+            >
+              For Scale &amp; Growth
+            </span>
+          </div>
         </h1>
 
-        {/* Subtitle */}
-        <p
-          className="text-lg sm:text-xl text-[#6C7A86] max-w-2xl leading-relaxed mb-11"
-          style={{ animation: "fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.35s both" }}
-        >
-          Exigo Consulting provides high-caliber strategic oversight, M&A guidance, private equity sourcing, and executive recruitment for growing mid-market corporations.
+        <p className="text-lg sm:text-xl text-[#6C7A86] max-w-2xl font-normal leading-relaxed mb-10">
+          Premier enterprise advisory delivering transformational M&amp;A, capital raise, and strategic consulting for middle-market growth companies.
         </p>
 
         {/* CTA Buttons */}
-        <div
-          className="flex flex-col sm:flex-row gap-4 items-center justify-center mb-16"
-          style={{ animation: "fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.5s both" }}
-        >
-          <Link href="/contact">
-            <button className="btn-primary-enterprise text-base">
-              Request Consultation
-              <ArrowRight className="w-4 h-4 btn-arrow" />
-            </button>
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-14">
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#0F6B82] hover:bg-[#155B6D] text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+          >
+            <span>Schedule Consultation</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </Link>
-          <Link href="/services">
-            <button className="btn-secondary-enterprise text-base">
-              Our Advisory Services
-            </button>
+          <Link
+            href="/services"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-neutral-50 text-[#1B2730] font-semibold text-base border border-[#E5EBEF] transition-all duration-300 shadow-sm hover:shadow flex items-center justify-center gap-2"
+          >
+            <span>Explore Services</span>
           </Link>
         </div>
 
-        {/* Trust Badges */}
-        <div
-          className="grid grid-cols-2 sm:grid-cols-4 gap-6 sm:gap-10 border-t border-[#E5EBEF] pt-10 w-full max-w-4xl"
-          style={{ animation: "fade-up 0.9s cubic-bezier(0.16,1,0.3,1) 0.65s both" }}
-        >
+        {/* Highlight Trust Badges */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full max-w-4xl border-t border-[#E5EBEF] pt-10">
           {[
-            { icon: ShieldCheck, label: "Fiduciary Integrity" },
-            { icon: Globe, label: "Global Institutional Network" },
+            { icon: Briefcase, label: "M&A Advisory" },
+            { icon: TrendingUp, label: "Fundraising" },
             { icon: Award, label: "Partner-Led Advisory" },
-            { icon: TrendingUp, label: "$250M+ Deals Structured" }
-          ].map((item, i) => (
-            <div key={i} className="flex flex-col items-center gap-2.5 group">
-              <div className="w-10 h-10 rounded-full bg-[#0F6B82]/8 flex items-center justify-center group-hover:bg-[#0F6B82]/15 transition-colors duration-300">
-                <item.icon className="w-5 h-5 text-[#0F6B82]" />
-              </div>
-              <span className="text-xs sm:text-sm text-[#6C7A86] font-medium text-center leading-tight">
-                {item.label}
-              </span>
+            { icon: ShieldCheck, label: "Confidentiality Guaranteed" },
+          ].map((item, index) => (
+            <div key={index} className="flex items-center justify-center gap-2.5 text-[#1B2730] font-medium text-sm">
+              <item.icon className="w-4 h-4 text-[#0F6B82]" />
+              <span>{item.label}</span>
             </div>
           ))}
         </div>

@@ -84,6 +84,106 @@
   to { opacity: 1; }
 }
 
+/* === 2-STEP REFRESH / PAGE-LOAD HEADER ANIMATION (2.4s FILL SWEEP) === */
+/* Step 1: Wireframe hollow stroke text outline appears first (0s - 1s) */
+@keyframes title-stroke-wireframe {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+    filter: blur(4px);
+  }
+  100% {
+    opacity: 0.35;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+/* Step 2: Main title solid fill sweep with 45-degree 3D drop shadow (2.4s duration) */
+@keyframes title-fill-sweep {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    filter: blur(6px);
+    text-shadow: 0px 0px 0px transparent;
+    clip-path: inset(0 100% 0 0);
+  }
+  30% {
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+    text-shadow: 4px 4px 0px rgba(15, 107, 130, 0.3), 8px 14px 28px rgba(15, 107, 130, 0.15);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Step 2b: Teal title solid fill sweep with 45-degree 3D drop shadow (2.4s duration) */
+@keyframes title-teal-fill-sweep {
+  0% {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+    filter: blur(6px);
+    text-shadow: 0px 0px 0px transparent;
+    clip-path: inset(0 100% 0 0);
+  }
+  30% {
+    opacity: 0.7;
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+    text-shadow: 4px 4px 0px rgba(15, 107, 130, 0.35), 8px 16px 32px rgba(15, 107, 130, 0.22);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Step 3: Subheading & CTA button: Scale up from scale(0.85) to scale(1) with spring bounce */
+@keyframes spring-scale-up {
+  0% {
+    opacity: 0;
+    transform: translateY(24px) scale(0.85);
+    filter: blur(4px);
+  }
+  75% {
+    transform: translateY(-2px) scale(1.015);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0px);
+  }
+}
+
+.animate-title-stroke {
+  animation: title-stroke-wireframe 1.0s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.animate-title-fill {
+  animation: title-fill-sweep 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity, filter, text-shadow, clip-path;
+}
+
+.animate-teal-fill {
+  animation: title-teal-fill-sweep 2.4s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  will-change: transform, opacity, filter, text-shadow, clip-path;
+}
+
+.animate-spring-scale {
+  animation: spring-scale-up 1.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  will-change: transform, opacity, filter;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px) rotate(0deg); }
   33% { transform: translateY(-12px) rotate(1deg); }
@@ -93,6 +193,12 @@
 @keyframes pulse-slow {
   0%, 100% { opacity: 0.5; transform: scale(1); }
   50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); opacity: 0.8; }
+  50% { transform: scale(1.25); opacity: 0.3; }
+  100% { transform: scale(1.4); opacity: 0; }
 }
 
 @keyframes logo-scroll {
@@ -267,7 +373,51 @@ body {
   animation: counter-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
-/* === HERO BUTTON === */
+/* === SPRING HOVER PHYSICS === */
+.spring-hover {
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+}
+
+.spring-hover:hover {
+  transform: scale(1.05) translateY(-3px);
+}
+
+/* === YELLOW CTA BUTTON (Vibrant Page-Load Hero CTA) === */
+.btn-yellow-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #FBBF24 0%, #F59E0B 100%);
+  color: #102A35;
+  border-radius: 9999px;
+  padding: 16px 32px;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid rgba(251, 191, 36, 0.6);
+  cursor: pointer;
+  box-shadow: 0 6px 20px 0 rgba(245, 158, 11, 0.35), 0 2px 6px 0 rgba(16, 42, 53, 0.08);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, background 0.3s ease;
+}
+
+.btn-yellow-cta:hover {
+  transform: scale(1.06) translateY(-2px);
+  box-shadow: 0 12px 32px 0 rgba(245, 158, 11, 0.5), 0 4px 12px 0 rgba(16, 42, 53, 0.1);
+  background: linear-gradient(135deg, #FCD34D 0%, #F59E0B 100%);
+}
+
+.btn-yellow-cta:active {
+  transform: scale(0.98);
+}
+
+.btn-yellow-cta .btn-arrow {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.btn-yellow-cta:hover .btn-arrow {
+  transform: translateX(4px);
+}
+
+/* === HERO TEAL BUTTON === */
 .btn-primary-enterprise {
   display: inline-flex;
   align-items: center;
@@ -275,19 +425,19 @@ body {
   background: #0F6B82;
   color: #ffffff;
   border-radius: 9999px;
-  padding: 14px 28px;
+  padding: 16px 32px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: var(--shadow-button);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, background 0.3s ease;
+  box-shadow: 0 6px 20px 0 rgba(15, 107, 130, 0.35);
 }
 
 .btn-primary-enterprise:hover {
   background: #155B6D;
-  transform: scale(1.03);
-  box-shadow: 0 8px 24px 0 rgba(15, 107, 130, 0.4);
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 10px 28px 0 rgba(15, 107, 130, 0.45);
 }
 
 .btn-primary-enterprise:hover .btn-arrow {
@@ -305,17 +455,19 @@ body {
   background: #ffffff;
   color: #0F6B82;
   border-radius: 9999px;
-  padding: 14px 28px;
+  padding: 15px 30px;
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
   border: 2px solid #0F6B82;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.4s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .btn-secondary-enterprise:hover {
   background: #0F6B82;
   color: #ffffff;
+  transform: scale(1.05) translateY(-2px);
+  box-shadow: 0 8px 24px 0 rgba(15, 107, 130, 0.25);
 }
 
 /* === DARK CTA BUTTON (Coral) === */
@@ -448,3 +600,62 @@ body {
 .page-transition {
   animation: fade-in 0.4s ease-out;
 }
+
+/* === 3D CAROUSEL UTILITIES === */
+.perspective-1200 {
+  perspective: 1200px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+@keyframes spin-sunburst {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-sunburst {
+  animation: spin-sunburst 45s linear infinite;
+}
+
+@keyframes float-badge {
+  0%, 100% {
+    transform: translateY(0) rotate(-3deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg);
+  }
+}
+
+.animate-float-badge {
+  animation: float-badge 4s ease-in-out infinite;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-pulse-ring {
+  animation: pulse-ring 3s ease-in-out infinite;
+}
+
