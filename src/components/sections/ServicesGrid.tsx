@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Container from "../ui/Container";
 import SectionHeading from "../ui/SectionHeading";
+import ParallaxReveal from "../ui/ParallaxReveal";
 
 const enterpriseServices = [
   {
@@ -69,7 +70,6 @@ const enterpriseServices = [
 
 export default function ServicesGrid() {
   const sectionRef = useRef<HTMLElement>(null);
-  const gridRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -84,7 +84,6 @@ export default function ServicesGrid() {
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
-    if (gridRef.current) observer.observe(gridRef.current);
 
     return () => observer.disconnect();
   }, []);
@@ -98,46 +97,43 @@ export default function ServicesGrid() {
           description="We deliver partner-led advisory services tailored to our clients' long-term commercial and technological goals."
         />
 
-        <div ref={gridRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger-children">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {enterpriseServices.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <Link href={service.href} key={index}>
-                <div className="enterprise-card p-6 h-full flex flex-col gap-4 cursor-pointer group">
-                  {/* Icon */}
-                  <div
-                    className="w-12 h-12 rounded-[14px] flex items-center justify-center transition-all duration-300 group-hover:scale-110"
-                    style={{
-                      background: service.color === "#DE7A66"
-                        ? "rgba(222,122,102,0.1)"
-                        : "rgba(15,107,130,0.08)",
-                      border: `1px solid ${service.color === "#DE7A66" ? "rgba(222,122,102,0.2)" : "rgba(15,107,130,0.15)"}`,
-                      color: service.color
-                    }}
-                  >
-                    <IconComponent className="w-5 h-5" strokeWidth={1.75} />
+              <ParallaxReveal key={index} delayMs={(index % 4) * 120} speed={0.1}>
+                <Link href={service.href}>
+                  <div className="enterprise-card p-6 h-full flex flex-col gap-4 cursor-pointer group spring-hover">
+                    {/* Icon */}
+                    <div
+                      className="w-12 h-12 rounded-[14px] flex items-center justify-center transition-all duration-300 group-hover:scale-110 shadow-xs"
+                      style={{
+                        background: service.color === "#DE7A66"
+                          ? "rgba(222,122,102,0.1)"
+                          : "rgba(15,107,130,0.08)",
+                        border: `1px solid ${service.color === "#DE7A66" ? "rgba(222,122,102,0.2)" : "rgba(15,107,130,0.15)"}`,
+                        color: service.color
+                      }}
+                    >
+                      <IconComponent className="w-5 h-5" strokeWidth={1.75} />
+                    </div>
+
+                    {/* Content */}
+                    <h3 className="font-bold text-lg text-[#1B2730] group-hover:text-[#0F6B82] transition-colors">
+                      {service.title}
+                    </h3>
+                    <p className="text-[#6C7A86] text-sm leading-relaxed flex-grow">
+                      {service.description}
+                    </p>
+
+                    {/* Link */}
+                    <div className="arrow-link mt-2 pt-2 border-t border-[#E5EBEF]">
+                      <span>Learn More</span>
+                      <ArrowRight className="w-4 h-4" />
+                    </div>
                   </div>
-
-                  {/* Title */}
-                  <h3
-                    className="text-[17px] font-[600] text-[#1B2730] leading-snug group-hover:text-[#0F6B82] transition-colors"
-                    style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-                  >
-                    {service.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[14px] text-[#6C7A86] leading-relaxed flex-grow">
-                    {service.description}
-                  </p>
-
-                  {/* Animated Arrow Link */}
-                  <div className="arrow-link pt-2 border-t border-[#E5EBEF]">
-                    <span>Explore</span>
-                    <ArrowRight className="w-4 h-4" strokeWidth={1.75} />
-                  </div>
-                </div>
-              </Link>
+                </Link>
+              </ParallaxReveal>
             );
           })}
         </div>

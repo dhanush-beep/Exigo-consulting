@@ -7,8 +7,8 @@ export const siteConfig = {
   ogImage: "/images/logo/og-image.jpg",
   contact: {
     email: "info@exigo-consulting.com",
-    phone: "+91 98800 12345",
-    address: "Executive Suites, Level 4, UB City, Bangalore, India"
+    phone: "+91 80089 22112",
+    address: "Level 1, Suite # 11, Tourism Plaza, Begumpet, Greenland's-Hyderabad. Telangana-India-500016."
   }
 };
 
