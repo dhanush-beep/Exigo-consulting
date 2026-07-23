@@ -9,61 +9,31 @@ const TESTIMONIALS_DATA = [
     id: 1,
     quote:
       '"A trusted partner in every step of our merger journey. Highly recommend their strategic insights!"',
-    name: "Sarah Mitchell",
-    role: "CFO, Tech Ventures",
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80",
   },
   {
     id: 2,
     quote:
       '"Exigo Consulting provided clarity and confidence throughout our complex transaction. Truly top-notch advisors!"',
-    name: "Michael Brown",
-    role: "VP, Enterprise Software",
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=200&q=80",
   },
   {
     id: 3,
     quote:
       '"Exigo\'s advisory team exceeded expectations, delivering exceptional results in our divestment process."',
-    name: "Raj Patel",
-    role: "Managing Director, HealthTech",
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80",
   },
   {
     id: 4,
     quote:
-      '"Their partner-led approach was invaluable during our cross-border acquisition. Exceptional financial precision."',
-    name: "David Vance",
-    role: "Partner, Apex Private Equity",
+      '"Their commitment to client success and attention to detail set them apart in the M&A space."',
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80",
   },
   {
     id: 5,
     quote:
-      '"Exigo brought extraordinary market intelligence to the table. Their BOT consultancy restructured our growth roadmap."',
-    name: "Elena Rostova",
-    role: "Chief Strategy Officer, Cleantech",
+      '"Exigo Consulting guided us seamlessly through our acquisition. Their expertise and professionalism were invaluable!"',
     rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=200&q=80",
-  },
-  {
-    id: 6,
-    quote:
-      '"Working with Rajesh and Exigo gave our board absolute confidence. They closed our equity mandate ahead of schedule."',
-    name: "Vikram Malhotra",
-    role: "CEO, SaaS ScaleUp",
-    rating: 5,
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80",
   },
 ];
 
@@ -98,7 +68,7 @@ export default function Testimonials() {
         <div className="max-w-3xl mx-auto text-center mb-14 sm:mb-18 space-y-3">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-50 border border-rose-100 text-xs font-extrabold uppercase tracking-widest text-[#DE7A66] shadow-xs mb-2">
             <Sparkles className="w-3.5 h-3.5" />
-            <span>CLIENT TESTIMONIALS &amp; REVIEWS</span>
+            <span>CLIENT REVIEWS</span>
           </div>
           <h2
             className="text-4xl sm:text-5xl font-black text-[#1B2730] tracking-tight leading-tight font-display"
@@ -138,26 +108,14 @@ export default function Testimonials() {
                     </p>
                   </div>
 
-                  {/* Author Footer */}
+                  {/* Clean Card Footer */}
                   <div className="flex items-center justify-between pt-4 border-t border-neutral-100">
-                    <div className="flex items-center gap-3">
-                      <img
-                        src={item.avatar}
-                        alt={item.name}
-                        className="w-12 h-12 rounded-full object-cover shadow-md border-2 border-neutral-100"
-                      />
-                      <div>
-                        <h4 className="text-base font-bold text-[#0F6B82] leading-snug">
-                          {item.name}
-                        </h4>
-                        <p className="text-xs text-neutral-500 font-semibold uppercase tracking-wider">
-                          {item.role}
-                        </p>
-                      </div>
-                    </div>
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0F6B82]">
+                      EXIGO ADVISORY REVIEW
+                    </span>
 
                     {/* Coral Quote Icon */}
-                    <div className="text-3xl font-serif text-[#DE7A66] font-black leading-none opacity-60 group-hover:opacity-100 group-hover:scale-125 transition-all">
+                    <div className="text-3xl font-serif text-[#DE7A66] font-black leading-none opacity-70 group-hover:opacity-100 group-hover:scale-125 transition-all">
                       ““
                     </div>
                   </div>
@@ -210,9 +168,7 @@ export default function Testimonials() {
             {TESTIMONIALS_DATA.concat(TESTIMONIALS_DATA).map((item, idx) => (
               <div key={idx} className="inline-flex items-center gap-3 px-6 py-2 rounded-full bg-white border border-neutral-200 text-xs font-bold text-neutral-700 shadow-2xs">
                 <span className="text-[#DE7A66]">★★★★★</span>
-                <span>{item.name}</span>
-                <span className="text-neutral-400">•</span>
-                <span className="text-[#0F6B82]">{item.role}</span>
+                <span className="text-[#0F6B82] font-mono">CLIENT ADVISORY REVIEW #{item.id}</span>
               </div>
             ))}
           </div>
