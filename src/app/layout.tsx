@@ -5,6 +5,7 @@ import TopBar from "@/components/layout/TopBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingChatWidget from "@/components/ui/FloatingChatWidget";
+import PageTransitionWrapper from "@/components/motion/PageTransitionWrapper";
 import { siteConfig } from "@/lib/metadata";
 
 const inter = Inter({
@@ -47,10 +48,12 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${outfit.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col bg-white text-[#1B2730] selection:bg-teal-100 selection:text-teal-600 page-transition">
+      <body className="min-h-full flex flex-col bg-white text-[#1B2730] selection:bg-teal-100 selection:text-teal-600">
         <TopBar />
         <Header />
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow">
+          <PageTransitionWrapper>{children}</PageTransitionWrapper>
+        </main>
         <Footer />
         <FloatingChatWidget />
       </body>
