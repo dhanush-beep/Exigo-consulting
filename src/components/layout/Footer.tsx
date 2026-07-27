@@ -1,95 +1,126 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, Phone, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Phone, MapPin, ChevronRight, ArrowRight } from "lucide-react";
 import LinkedinIcon from "../ui/LinkedinIcon";
-import { siteConfig } from "@/lib/metadata";
 import Container from "../ui/Container";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
+  const [email, setEmail] = useState("");
+  const [subscribed, setSubscribed] = useState(false);
 
-  const serviceLinks = [
+  const quickLinks = [
     { label: "Mergers & Acquisitions", href: "/services/mergers-acquisitions" },
-    { label: "Fundraising", href: "/services/fundraising" },
+    { label: "Fundraising Services", href: "/services/fundraising" },
     { label: "Business Consulting", href: "/services/business-consulting" },
-    { label: "Talent Acquisition", href: "/services/talent-acquisition" },
-    { label: "Other Advisory", href: "/services/other-services" }
+    { label: "Talent Acquisition Services", href: "/services/talent-acquisition" },
+    { label: "Other Services", href: "/services/other-services" },
   ];
 
   const companyLinks = [
-    { label: "About Overview", href: "/about" },
-    { label: "Meet Rajesh", href: "/about/meet-rajesh" },
-    { label: "Strategic Advisors", href: "/about/advisors" },
-    { label: "Current Opportunities", href: "/current-opportunities" },
-    { label: "Latest Briefings", href: "/blog" }
+    { label: "About Us", href: "/about" },
+    { label: "Our Team", href: "/about/advisors" },
+    { label: "Careers", href: "/current-opportunities" },
+    { label: "Blog", href: "/blog" },
+    { label: "Contact Us", href: "/contact" },
   ];
 
-  return (
-    <footer className="bg-[#F7F9FA] border-t border-[#E5EBEF] pt-16 pb-8 text-sm">
-      <Container>
-        {/* Top CTA Banner */}
-        <div className="bg-[#0F6B82] rounded-[24px] p-8 sm:p-10 mb-16 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-md">
-          <div>
-            <h3
-              className="text-2xl sm:text-3xl font-[700] text-white mb-2"
-              style={{ fontFamily: "var(--font-outfit), sans-serif" }}
-            >
-              Ready to Transform Your Enterprise?
-            </h3>
-            <p className="text-white/80 text-[15px]">
-              Schedule a confidential advisory consultation with our senior partners.
-            </p>
-          </div>
-          <Link href="/contact" className="shrink-0">
-            <button className="btn-coral whitespace-nowrap">
-              Get Started
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </Link>
-        </div>
+  const handleSubscribe = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (email) {
+      setSubscribed(true);
+      setEmail("");
+      setTimeout(() => setSubscribed(false), 4000);
+    }
+  };
 
-        {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
-          {/* Brand Column */}
-          <div className="flex flex-col gap-5">
-            <Link href="/" className="inline-block group transition-transform duration-300 hover:scale-[1.02]">
+  return (
+    <footer className="bg-[#091A26] text-white border-t border-white/10 pt-16 pb-8 text-sm select-none">
+      <Container>
+        {/* Main 4-Column Footer Grid matching screenshot */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
+          
+          {/* Column 1: Brand & Headquarters Info */}
+          <div className="lg:col-span-4 flex flex-col gap-4">
+            <Link href="/" className="inline-block group transition-transform duration-300 hover:scale-[1.02] mb-2">
               <Image
                 src="/logo.png"
                 alt="Exigo Consulting Logo"
                 width={180}
                 height={64}
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto object-contain filter brightness-[1.2]"
               />
             </Link>
-            <p className="text-[#6C7A86] leading-relaxed text-[14px]">
-              High-caliber corporate advisory, M&amp;A oversight, institutional fundraising, and executive recruiting for enterprises poised for market leadership.
-            </p>
-            <div className="flex items-center gap-3">
+
+            <div className="flex items-start gap-3 text-slate-300 text-xs sm:text-sm leading-relaxed">
+              <MapPin className="w-4 h-4 text-[#DE7A66] shrink-0 mt-0.5" />
+              <span>
+                Level 1, Suite # 11, Tourism Plaza, Begumpet, Greenland&apos;s-Hyderabad. Telangana-India-500016.
+              </span>
+            </div>
+
+            <div className="flex items-center gap-3 text-slate-300 text-xs sm:text-sm">
+              <Mail className="w-4 h-4 text-[#3A9FB7] shrink-0" />
+              <a
+                href="mailto:ra@exigoconsulting.in"
+                className="hover:text-[#4CC9F0] transition-colors"
+              >
+                ra@exigoconsulting.in
+              </a>
+            </div>
+
+            <div className="flex items-center gap-3 text-slate-300 text-xs sm:text-sm">
+              <Phone className="w-4 h-4 text-[#3A9FB7] shrink-0" />
+              <a
+                href="tel:+918008922112"
+                className="hover:text-[#4CC9F0] transition-colors"
+              >
+                +91 80089 22112
+              </a>
+            </div>
+
+            {/* Social Icons matching screenshot */}
+            <div className="flex items-center gap-3 pt-2">
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0F6B82] text-white flex items-center justify-center transition-all duration-300 border border-white/10"
+                aria-label="Facebook Profile"
+              >
+                <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                </svg>
+              </a>
+
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-full bg-[#0F6B82]/10 border border-[#0F6B82]/20 flex items-center justify-center hover:bg-[#0F6B82] hover:text-white text-[#0F6B82] transition-all duration-300"
+                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#0077B5] text-white flex items-center justify-center transition-all duration-300 border border-white/10"
                 aria-label="LinkedIn Profile"
               >
-                <LinkedinIcon className="w-4 h-4" />
+                <LinkedinIcon className="w-4 h-4 fill-current" />
               </a>
             </div>
           </div>
 
-          {/* Services Column */}
-          <div>
-            <h3 className="text-xs font-[700] tracking-[0.12em] text-[#1B2730] uppercase mb-6">
-              Advisory Services
+          {/* Column 2: Quick Links */}
+          <div className="lg:col-span-3">
+            <h3 className="text-base font-bold text-white font-display mb-5">
+              Quick Links
             </h3>
             <ul className="space-y-3">
-              {serviceLinks.map((link) => (
+              {quickLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#6C7A86] hover:text-[#0F6B82] text-[14px] flex items-center gap-1 hover:gap-2 transition-all duration-200"
+                    className="text-slate-300 hover:text-[#4CC9F0] text-xs sm:text-sm flex items-center gap-1.5 transition-colors group"
                   >
+                    <ChevronRight className="w-3.5 h-3.5 text-[#3A9FB7] group-hover:translate-x-0.5 transition-transform" />
                     <span>{link.label}</span>
                   </Link>
                 </li>
@@ -97,17 +128,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Company Column */}
-          <div>
-            <h3 className="text-xs font-[700] tracking-[0.12em] text-[#1B2730] uppercase mb-6">
-              Exigo Consulting
+          {/* Column 3: Company Links */}
+          <div className="lg:col-span-2">
+            <h3 className="text-base font-bold text-white font-display mb-5">
+              Company
             </h3>
             <ul className="space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[#6C7A86] hover:text-[#0F6B82] text-[14px] flex items-center gap-1 hover:gap-2 transition-all duration-200"
+                    className="text-slate-300 hover:text-[#4CC9F0] text-xs sm:text-sm flex items-center gap-1.5 transition-colors group"
                   >
                     <span>{link.label}</span>
                   </Link>
@@ -116,47 +147,54 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact Column */}
-          <div className="flex flex-col gap-4">
-            <h3 className="text-xs font-[700] tracking-[0.12em] text-[#1B2730] uppercase mb-2">
-              Headquarters
+          {/* Column 4: Newsletter Form */}
+          <div className="lg:col-span-3 flex flex-col gap-4">
+            <h3 className="text-base font-bold text-white font-display mb-1">
+              Newsletter
             </h3>
-            <div className="flex items-start gap-3">
-              <MapPin className="w-4 h-4 text-[#0F6B82] shrink-0 mt-0.5" strokeWidth={1.75} />
-              <span className="text-[14px] text-[#6C7A86] leading-relaxed">{siteConfig.contact.address}</span>
-            </div>
-            <div className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#0F6B82] shrink-0" strokeWidth={1.75} />
-              <a
-                href={`tel:${siteConfig.contact.phone.replace(/\s+/g, "")}`}
-                className="text-[14px] text-[#6C7A86] hover:text-[#0F6B82] transition-colors"
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+              Get the latest news &amp; updates delivered to your inbox.
+            </p>
+
+            <form onSubmit={handleSubscribe} className="relative flex items-center w-full">
+              <input
+                type="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Your email address"
+                className="w-full bg-white text-slate-900 placeholder:text-slate-400 rounded-xl py-3 pl-4 pr-12 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#3A9FB7]"
+              />
+              <button
+                type="submit"
+                className="absolute right-1.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-lg bg-[#0F6B82] hover:bg-[#155B6D] text-white flex items-center justify-center transition-colors shadow-sm"
+                aria-label="Subscribe to Newsletter"
               >
-                {siteConfig.contact.phone}
-              </a>
-            </div>
-            <div className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#0F6B82] shrink-0" strokeWidth={1.75} />
-              <a
-                href={`mailto:${siteConfig.contact.email}`}
-                className="text-[14px] text-[#6C7A86] hover:text-[#0F6B82] transition-colors"
-              >
-                {siteConfig.contact.email}
-              </a>
-            </div>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </form>
+
+            {subscribed ? (
+              <p className="text-xs text-[#4CC9F0] font-medium">Thank you for subscribing!</p>
+            ) : (
+              <p className="text-[11px] text-slate-400">
+                We respect your privacy. <span className="underline cursor-pointer">Unsubscribe</span> at any time.
+              </p>
+            )}
           </div>
+
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-[#E5EBEF] pt-8">
-          <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p className="text-[13px] text-[#6C7A86]">
-              © {currentYear} Exigo Consulting. All rights reserved.
-            </p>
-            <div className="flex gap-6">
-              <Link href="/privacy" className="text-[13px] text-[#6C7A86] hover:text-[#0F6B82] transition-colors">
+        {/* Bottom Bar matching screenshot */}
+        <div className="border-t border-white/10 pt-8 mt-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-400">
+            <p>© {currentYear} Exigo Consulting. All rights reserved.</p>
+            <div className="flex items-center gap-6">
+              <Link href="/privacy" className="hover:text-white transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="/terms" className="text-[13px] text-[#6C7A86] hover:text-[#0F6B82] transition-colors">
+              <span>|</span>
+              <Link href="/terms" className="hover:text-white transition-colors">
                 Terms of Service
               </Link>
             </div>
