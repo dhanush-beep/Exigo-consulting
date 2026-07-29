@@ -1,274 +1,595 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Link from "next/link";
-import { constructMetadata } from "@/lib/metadata";
+import Image from "next/image";
 import Container from "@/components/ui/Container";
-import SectionHeading from "@/components/ui/SectionHeading";
-import Card from "@/components/ui/Card";
-import Button from "@/components/ui/Button";
-import { services } from "@/lib/data/services";
 import {
-  Briefcase,
-  CheckCircle2,
   ArrowRight,
-  Shield,
-  Award,
-  Target,
-  Users,
-  Headset,
+  ArrowDown,
   Handshake,
+  TrendingUp,
+  Briefcase,
+  Settings,
   Lightbulb,
-  ShieldCheck
+  BarChart3,
+  Network,
+  ShieldCheck,
+  UserCheck,
+  Award,
+  Trophy,
+  Coins,
+  Users,
+  Target,
+  FileText,
+  User,
+  Plus,
+  Minus,
+  CheckCircle2,
+  Building2,
+  Sparkles,
+  Phone
 } from "lucide-react";
 
-export const metadata = constructMetadata({
-  title: "Mergers & Acquisitions Advisory",
-  description: "Elite buy-side and sell-side advisory, corporate valuations, and post-merger integration services."
-});
-
 export default function MergersAcquisitionsPage() {
-  const service = services.find((s) => s.slug === "mergers-acquisitions")!;
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
-  const values = [
+  const toggleFaq = (index: number) => {
+    setOpenFaq(openFaq === index ? null : index);
+  };
+
+  const servicesList = [
     {
-      icon: Users,
-      title: "Expertise",
-      description: "With a team of seasoned professionals boasting extensive experience in M&A, we bring a wealth of knowledge to the table, tailored to your unique business goals."
+      title: "Buyer-Seller Connection",
+      description:
+        "Connect qualified buyers and sellers through our extensive network, enabling seamless high-value transactions.",
+      icon: Handshake
     },
     {
-      icon: Headset,
-      title: "Comprehensive Support",
-      description: "Whether you're a buyer seeking expansion or a seller looking to optimize value, we offer end-to-end support throughout the entire mandate."
+      title: "M&A Strategy & Advisory",
+      description:
+        "Strategic planning from valuation through due diligence and post-merger integration.",
+      icon: TrendingUp
     },
     {
-      icon: Handshake,
-      title: "Client-Centric Approach",
-      description: "Your success is our priority. We build strong, collaborative relationships and tailor our strategies to align with your vision."
+      title: "Investment Assessment",
+      description:
+        "Identify profitable investment opportunities using advanced financial and market analysis.",
+      icon: Briefcase
     },
     {
-      icon: Lightbulb,
-      title: "Innovation and Insight",
-      description: "The world of M&A is ever-evolving. We stay ahead of the curve, incorporating innovative approaches to navigate complex transactions."
-    },
-    {
-      icon: ShieldCheck,
-      title: "Confidentiality and Integrity",
-      description: "We understand the sensitivity of M&A transactions. Our commitment to confidentiality and integrity is unwavering."
+      title: "Tailored Solutions",
+      description:
+        "Custom advisory services designed specifically for your business goals and challenges.",
+      icon: Settings
     }
   ];
 
+  const processSteps = [
+    { number: "01", title: "Discovery", icon: Lightbulb },
+    { number: "02", title: "Business Valuation", icon: BarChart3 },
+    { number: "03", title: "Buyer Matching", icon: Network },
+    { number: "04", title: "Negotiation", icon: ShieldCheck },
+    { number: "05", title: "Due Diligence", icon: UserCheck },
+    { number: "06", title: "Deal Closure", icon: Award },
+    { number: "07", title: "Integration", icon: Handshake }
+  ];
+
+  const stats = [
+    {
+      icon: Trophy,
+      value: "250+",
+      label: "Successful Deals",
+      sublabel: "Across diverse industries"
+    },
+    {
+      icon: Coins,
+      value: "₹500Cr+",
+      label: "Transactions Managed",
+      sublabel: "Total value of deals"
+    },
+    {
+      icon: Users,
+      value: "18+",
+      label: "Years Experience",
+      sublabel: "In delivering results"
+    },
+    {
+      icon: Target,
+      value: "95%",
+      label: "Client Satisfaction",
+      sublabel: "Long-term relationships"
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote:
+        "Exigo made our acquisition process remarkably smooth. Their insights and guidance were invaluable.",
+      author: "Rahul Sharma",
+      role: "CEO, TechNova Solutions",
+      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
+    },
+    {
+      quote:
+        "The team's professionalism and attention to detail exceeded our expectations at every step.",
+      author: "Anita Verma",
+      role: "MD, Verma Enterprises",
+      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
+    },
+    {
+      quote:
+        "Highly recommended for any business looking to grow through strategic mergers.",
+      author: "Vikram Malhotra",
+      role: "Director, Malhotra Group",
+      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
+    }
+  ];
+
+  const faqs = [
+    {
+      question: "How long does an acquisition take?",
+      answer:
+        "A typical M&A transaction takes between 4 to 9 months depending on diligence, valuation complexity, and regulatory approvals."
+    },
+    {
+      question: "What industries do you serve?",
+      answer:
+        "We serve Technology, Healthcare, Manufacturing, Financial Services, Retail, Logistics, and Consumer Goods sectors."
+    },
+    {
+      question: "What is your fee structure?",
+      answer:
+        "Our fee structure combines an upfront retainer for transaction preparation with a success fee tied to final closing."
+    },
+    {
+      question: "Can you help with fundraising?",
+      answer:
+        "Yes, we offer comprehensive capital raise advisory for venture capital, private equity, and structured debt."
+    }
+  ];
+
+  const relatedServices = [
+    { label: "Fundraising Services", href: "/services/fundraising" },
+    { label: "Business Consulting", href: "/services/business-consulting" },
+    { label: "Talent Acquisition", href: "/services/talent-acquisition" },
+    { label: "Other Services", href: "/services/other-services" }
+  ];
+
   return (
-    <div className="py-16 sm:py-24 bg-white min-h-screen relative">
-      {/* Subtle Hero Grid & Radial Background Glows */}
-      <div className="absolute inset-0 hero-grid opacity-50 pointer-events-none" />
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-[-5%] right-[-5%] w-[500px] h-[500px] rounded-full opacity-30"
-          style={{ background: "radial-gradient(circle, rgba(15,107,130,0.12) 0%, transparent 70%)" }}
-        />
-      </div>
-
-      <Container className="relative z-10">
-        {/* Navigation Breadcrumb */}
-        <div className="text-xs sm:text-sm text-[#6C7A86] mb-8 flex items-center gap-2">
-          <Link href="/services" className="hover:text-[#0F6B82] transition-colors font-medium">Services</Link>
-          <span>/</span>
-          <span className="text-[#1B2730] font-medium">Mergers &amp; Acquisitions</span>
+    <div className="bg-[#F8FAFC] min-h-screen text-[#1E293B]">
+      {/* 1. HERO SECTION matching screenshot exactly */}
+      <section className="relative bg-[#091D2C] text-white min-h-[500px] lg:min-h-[540px] flex items-center overflow-hidden w-full">
+        {/* Right-side hero background image with gradient fade to left */}
+        <div className="absolute inset-0 z-0 flex justify-end pointer-events-none">
+          <div className="w-full lg:w-[58%] h-full relative">
+            <img
+              src="/images/ma_hero_handshake.png"
+              alt="Mergers & Acquisitions Experts"
+              className="w-full h-full object-cover object-center"
+            />
+            {/* Smooth dark navy gradient overlay blending image into background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#091D2C] via-[#091D2C]/85 to-transparent lg:via-[#091D2C]/60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#091D2C] via-transparent to-transparent lg:hidden" />
+          </div>
         </div>
 
-        {/* Hero Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 items-center mb-20">
-          <div className="lg:col-span-7 flex flex-col gap-6">
-            <div className="enterprise-badge mb-2">
-              <Briefcase className="w-3.5 h-3.5 text-[#0F6B82]" />
-              <span>Practice Area</span>
-            </div>
-            <h1 className="text-4xl sm:text-5xl font-[800] font-display text-[#1B2730] leading-tight">
-              {service.title}
+        {/* Hero Content */}
+        <Container className="w-full relative z-10 py-16 sm:py-20 lg:py-24">
+          <div className="max-w-xl lg:max-w-xl flex flex-col items-start text-left">
+            <span className="text-[#38BDF8] text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-3">
+              EXPERTS IN
+            </span>
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] font-display">
+              Mergers &amp;<br />
+              Acquisitions
             </h1>
-            <p className="text-base sm:text-lg text-[#6C7A86] leading-relaxed">
-              {service.detailedDescription}
+            {/* Orange Accent Underline */}
+            <div className="w-16 h-[3.5px] bg-[#EB6A4C] mt-4 mb-6 rounded-full" />
+            <p className="text-slate-300 text-base sm:text-xl font-normal leading-relaxed max-w-md">
+              Helping businesses acquire, merge<br className="hidden sm:inline" />
+              and scale with confidence.
             </p>
-            <div className="flex gap-4 items-center">
-              <Shield className="w-5 h-5 text-[#0F6B82] shrink-0" />
-              <p className="text-xs text-[#0F6B82] uppercase tracking-wider font-semibold">
-                Strict Fiduciary Confidentiality Standards Enforced
-              </p>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <Link href="/contact">
+                <button className="px-7 py-3.5 bg-[#EB6A4C] hover:bg-[#d8583a] text-white text-sm sm:text-base font-semibold rounded-md flex items-center gap-2.5 transition-all shadow-lg hover:shadow-orange-500/20">
+                  Book Consultation <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button>
+              </Link>
+              <a href="#process">
+                <button className="px-6 py-3.5 bg-[#091D2C]/80 border border-white/40 hover:bg-white/10 text-white text-sm sm:text-base font-semibold rounded-md flex items-center gap-2.5 transition-all backdrop-blur-sm">
+                  Our Process <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5" />
+                </button>
+              </a>
             </div>
           </div>
-          <div className="lg:col-span-5 w-full rounded-3xl bg-[#F7F9FA] border border-[#E5EBEF] relative overflow-hidden shadow-card p-6 sm:p-7">
-            <div className="flex items-center justify-between mb-6">
-              <span className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#6C7A86]">Transaction Stage</span>
-              <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#1BA672]">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#1BA672]" />
-                Diligence in progress
-              </span>
-            </div>
+        </Container>
+      </section>
 
-            {/* Deal stage track */}
-            <div className="flex items-center mb-2">
-              {["Origination", "Diligence", "Structuring", "Close"].map((stage, idx) => (
-                <React.Fragment key={stage}>
-                  <div className="flex flex-col items-center gap-2 shrink-0">
-                    <div
-                      className={`w-3 h-3 rounded-full border-2 ${
-                        idx <= 1 ? "bg-[#0F6B82] border-[#0F6B82]" : "bg-white border-[#C5D5DC]"
-                      }`}
-                    />
-                  </div>
-                  {idx < 3 && (
-                    <div className={`flex-1 h-[2px] mx-1 ${idx < 1 ? "bg-[#0F6B82]" : "bg-[#E5EBEF]"}`} />
-                  )}
-                </React.Fragment>
-              ))}
-            </div>
-            <div className="flex justify-between mb-6">
-              {["Origination", "Diligence", "Structuring", "Close"].map((stage) => (
-                <span key={stage} className="text-[10px] sm:text-[11px] text-[#6C7A86] font-medium w-1/4 text-center first:text-left last:text-right">
-                  {stage}
-                </span>
-              ))}
-            </div>
-
-            {/* Active mandates */}
-            <div className="text-[11px] font-semibold uppercase tracking-[0.1em] text-[#6C7A86] mb-3">
-              Active Mandates
-            </div>
-            <div className="flex flex-col gap-2.5">
-              <div className="flex items-center justify-between bg-white border border-[#E5EBEF] rounded-xl px-4 py-3">
-                <div>
-                  <p className="text-sm font-semibold text-[#1B2730]">Sell-side · Mid-market SaaS</p>
-                  <p className="text-xs text-[#6C7A86]">Fairness opinion drafted</p>
-                </div>
-                <span className="text-[10px] font-semibold text-[#0F6B82] bg-[rgba(15,107,130,0.08)] rounded-full px-2.5 py-1">Q3</span>
-              </div>
-              <div className="flex items-center justify-between bg-white border border-[#E5EBEF] rounded-xl px-4 py-3">
-                <div>
-                  <p className="text-sm font-semibold text-[#1B2730]">Buy-side · Logistics platform</p>
-                  <p className="text-xs text-[#6C7A86]">Target shortlist finalized</p>
-                </div>
-                <span className="text-[10px] font-semibold text-[#0F6B82] bg-[rgba(15,107,130,0.08)] rounded-full px-2.5 py-1">Q3</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Features & Benefits Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
-          {/* Features card */}
-          <div className="enterprise-card p-8">
-            <h3 className="text-xl font-bold font-display text-[#1B2730] mb-6">Our Mandate Focus</h3>
-            <ul className="space-y-4">
-              {service.features.map((feature, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#0F6B82] shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-[#6C7A86] leading-relaxed">{feature}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Benefits card */}
-          <div className="enterprise-card p-8 bg-[#F7F9FA]">
-            <h3 className="text-xl font-bold font-display text-[#1B2730] mb-6">Client Outcomes</h3>
-            <ul className="space-y-4">
-              {service.benefits.map((benefit, idx) => (
-                <li key={idx} className="flex items-start gap-3">
-                  <span className="w-2 h-2 rounded-full bg-[#0F6B82] shrink-0 mt-2.5"></span>
-                  <span className="text-sm sm:text-base text-[#6C7A86] leading-relaxed">{benefit}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Stat + Commitment Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 mb-20">
-          <div className="lg:col-span-4 enterprise-card p-8 text-center flex flex-col items-center justify-center">
-            <div className="icon-teal mb-4">
-              <Award className="w-6 h-6" />
-            </div>
-            <p className="text-5xl font-extrabold font-display text-[#1B2730]">20+</p>
-            <p className="text-xs text-[#0F6B82] font-semibold uppercase tracking-widest mt-2">Years of Experience</p>
-          </div>
-
-          <div className="lg:col-span-8 bg-[#F7F9FA] rounded-3xl p-8 border border-[#E5EBEF]">
-            <h4 className="text-xl font-bold font-display text-[#1B2730] mb-4">Our Commitment</h4>
-            <ul className="space-y-4">
-              {[
-                "We limit our client intake to ensure focused partner bandwidth.",
-                "We provide transparent, objective valuation feedback.",
-                "We leverage a global corporate network of buyers and private equity firms.",
-                "We maintain complete confidentiality across all market inquiries."
-              ].map((item, index) => (
-                <li key={index} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-5 h-5 text-[#0F6B82] shrink-0 mt-0.5" />
-                  <span className="text-sm sm:text-base text-[#6C7A86] leading-relaxed">{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        {/* Values Section */}
-        <div className="mb-20">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="enterprise-badge mb-3 mx-auto">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#0F6B82]" />
-              <span>Core Philosophy</span>
-            </div>
-            <h2 className="text-3xl sm:text-4xl font-bold font-display text-[#1B2730]">
-              The Values That Guide Us
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {values.map((value, index) => {
-              const Icon = value.icon;
-              return (
-                <div key={index} className="enterprise-card p-8 flex flex-col items-start">
-                  <div className="icon-teal mb-6">
-                    <Icon className="w-6 h-6" />
-                  </div>
-                  <h4 className="text-xl font-bold font-display text-[#1B2730] mb-3">{value.title}</h4>
-                  <p className="text-sm text-[#6C7A86] leading-relaxed">{value.description}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* Our Vision Section */}
-        <div className="enterprise-card p-10 sm:p-14 mb-20 bg-gradient-to-br from-[#F7F9FA] to-white border border-[#E5EBEF]">
-          <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-            <div className="enterprise-badge mb-4">
-              <Target className="w-3.5 h-3.5 text-[#0F6B82]" />
-              <span>Our Strategic Vision</span>
-            </div>
-            <h3 className="text-3xl sm:text-4xl font-bold font-display text-[#1B2730] leading-snug mb-6">
-              Strategic Partnerships That Drive Sustainable Growth
-            </h3>
-            <p className="text-[#6C7A86] text-base leading-relaxed mb-8">
-              We envision a business landscape where M&amp;A activities are not just transactions but strategic partnerships that drive sustainable growth. Our mission is to empower organizations to navigate the complexities of mergers and acquisitions with confidence, leveraging our expertise to unlock unprecedented value and create synergies that endure.
-            </p>
-            <Link href="/contact">
-              <button className="btn-primary-enterprise text-base">
-                Start Consultation
-                <ArrowRight className="w-4 h-4 btn-arrow" />
-              </button>
-            </Link>
-          </div>
-        </div>
-
-        {/* CTA Card */}
-        <div className="enterprise-card p-8 sm:p-12 text-center max-w-3xl mx-auto bg-gradient-to-br from-[#F7F9FA] to-white border border-[#E5EBEF]">
-          <h3 className="text-2xl font-bold font-display text-[#1B2730] mb-3">Discuss a Transaction Mandate</h3>
-          <p className="text-[#6C7A86] text-sm sm:text-base leading-relaxed mb-6">
-            Contact us for a confidential initial consultation with a managing partner. We can review valuations, buy-side targets, or sell-side preparation timelines.
+      {/* 2. TRUSTED BY LEADING COMPANIES LOGO BAR */}
+      <section className="bg-white border-b border-slate-200 py-8">
+        <Container>
+          <p className="text-center text-xs font-bold text-slate-400 tracking-widest uppercase mb-6">
+            TRUSTED BY LEADING COMPANIES
           </p>
-          <Link href="/contact">
-            <button className="btn-primary-enterprise text-base">
-              Initiate Private Consultation
-              <ArrowRight className="w-4 h-4 btn-arrow" />
+          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
+            {/* Microsoft */}
+            <div className="flex items-center gap-2 font-bold text-slate-700 text-lg">
+              <div className="grid grid-cols-2 gap-0.5 w-4 h-4">
+                <span className="bg-[#F25022] rounded-[1px]" />
+                <span className="bg-[#7FBA00] rounded-[1px]" />
+                <span className="bg-[#00A4EF] rounded-[1px]" />
+                <span className="bg-[#FFB900] rounded-[1px]" />
+              </div>
+              <span className="font-semibold text-slate-800 text-base tracking-tight">Microsoft</span>
+            </div>
+
+            {/* Amazon */}
+            <div className="flex items-center font-bold text-slate-800 text-lg tracking-tight">
+              amazon
+            </div>
+
+            {/* Oracle */}
+            <div className="flex items-center font-black text-[#C7254E] tracking-widest text-base">
+              ORACLE
+            </div>
+
+            {/* TCS */}
+            <div className="flex items-center gap-1 font-bold text-slate-800 text-sm">
+              <span className="bg-slate-800 text-white px-1.5 py-0.5 rounded text-xs">tcs</span>
+              <span className="text-[10px] text-slate-500 uppercase tracking-tighter hidden sm:inline">Tata Consultancy Services</span>
+            </div>
+
+            {/* Infosys */}
+            <div className="flex items-center font-bold text-[#007CC3] text-base tracking-tight">
+              Infosys
+            </div>
+
+            {/* Adobe */}
+            <div className="flex items-center gap-1 font-bold text-slate-800 text-base">
+              <span className="text-[#FF0000] font-black text-xl">A</span>
+              <span className="text-slate-800">Adobe</span>
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* 3. MAIN CONTENT CONTAINER (TWO COLUMNS) */}
+      <Container className="py-14 sm:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          {/* ================= LEFT MAIN CONTENT (8 COLS) ================= */}
+          <div className="lg:col-span-8 space-y-16">
+            
+            {/* SECTION 1: OUR SERVICES */}
+            <div>
+              <h2 className="text-center text-xs font-extrabold uppercase tracking-widest text-[#0B2530] mb-8">
+                OUR SERVICES
+              </h2>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                {servicesList.map((service, index) => {
+                  const Icon = service.icon;
+                  return (
+                    <div
+                      key={index}
+                      className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
+                    >
+                      <div>
+                        <div className="w-12 h-12 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                          <Icon className="w-6 h-6" />
+                        </div>
+                        <h3 className="font-bold text-[#0B2530] text-base mb-2">
+                          {service.title}
+                        </h3>
+                        <p className="text-xs text-slate-500 leading-relaxed">
+                          {service.description}
+                        </p>
+                      </div>
+                      <div className="mt-5 flex justify-end">
+                        <span className="w-8 h-8 rounded-full bg-slate-50 text-[#EB6A4C] flex items-center justify-center group-hover:bg-[#EB6A4C] group-hover:text-white transition-all">
+                          <ArrowRight className="w-4 h-4" />
+                        </span>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* SECTION 2: OUR M&A PROCESS */}
+            <div id="process" className="pt-4">
+              <h2 className="text-center text-xs font-extrabold uppercase tracking-widest text-[#0B2530] mb-10">
+                OUR M&amp;A PROCESS
+              </h2>
+
+              {/* Connected Steps Grid */}
+              <div className="relative">
+                {/* Connecting Line (Desktop) */}
+                <div className="hidden sm:block absolute top-[28px] left-[6%] right-[6%] h-[2px] border-t-2 border-dashed border-slate-300 z-0" />
+
+                <div className="grid grid-cols-2 sm:grid-cols-7 gap-4 relative z-10">
+                  {processSteps.map((step, idx) => {
+                    const Icon = step.icon;
+                    return (
+                      <div
+                        key={idx}
+                        className="flex flex-col items-center text-center group"
+                      >
+                        {/* Step Number Circle */}
+                        <div className="w-12 h-12 rounded-full bg-[#0B2530] text-white font-bold text-xs flex items-center justify-center shadow-md mb-3 border-2 border-white group-hover:scale-110 group-hover:bg-[#0F6B82] transition-all">
+                          {step.number}
+                        </div>
+                        {/* Icon Container */}
+                        <div className="w-10 h-10 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-2">
+                          <Icon className="w-5 h-5" />
+                        </div>
+                        {/* Label */}
+                        <span className="text-[11px] font-semibold text-[#0B2530] leading-tight max-w-[90px]">
+                          {step.title}
+                        </span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+            </div>
+
+            {/* SECTION 3: STATS GRID */}
+            <div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                {stats.map((stat, idx) => {
+                  const Icon = stat.icon;
+                  return (
+                    <div
+                      key={idx}
+                      className="bg-white border border-slate-200/90 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-center"
+                    >
+                      <div className="w-10 h-10 rounded-full bg-orange-50 text-[#EB6A4C] flex items-center justify-center mb-3">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                      <span className="text-2xl sm:text-3xl font-extrabold text-[#0B2530]">
+                        {stat.value}
+                      </span>
+                      <span className="font-bold text-xs text-[#0B2530] mt-1">
+                        {stat.label}
+                      </span>
+                      <span className="text-[11px] text-slate-500 mt-0.5">
+                        {stat.sublabel}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* SECTION 4: ABOUT EXIGO CONSULTING */}
+            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm">
+              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+                {/* Left Text */}
+                <div className="md:col-span-7 flex flex-col items-start">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#0B2530] mb-3">
+                    ABOUT EXIGO CONSULTING
+                  </span>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
+                    Exigo Consulting is a leading mergers and acquisitions advisory firm with a proven track record of delivering exceptional results. Our holistic approach combines deep industry knowledge, advanced analytics and a commitment to client success.
+                  </p>
+                  
+                  {/* Badges */}
+                  <div className="grid grid-cols-3 gap-3 w-full border-t border-slate-100 pt-5">
+                    <div className="flex flex-col items-center text-center p-2 rounded-lg bg-slate-50">
+                      <div className="w-7 h-7 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-1">
+                        <Award className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-bold text-xs text-[#0B2530]">18+ Years</span>
+                      <span className="text-[10px] text-slate-500">Industry Experience</span>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-2 rounded-lg bg-slate-50">
+                      <div className="w-7 h-7 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-1">
+                        <UserCheck className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-bold text-xs text-[#0B2530]">Expert Team</span>
+                      <span className="text-[10px] text-slate-500">Domain Specialists</span>
+                    </div>
+
+                    <div className="flex flex-col items-center text-center p-2 rounded-lg bg-slate-50">
+                      <div className="w-7 h-7 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-1">
+                        <Handshake className="w-3.5 h-3.5" />
+                      </div>
+                      <span className="font-bold text-xs text-[#0B2530]">End-to-End</span>
+                      <span className="text-[10px] text-slate-500">Support</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Image */}
+                <div className="md:col-span-5 relative rounded-xl overflow-hidden">
+                  <img
+                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
+                    alt="Exigo Consulting Skyscraper Headquarters"
+                    className="w-full h-64 object-cover rounded-xl"
+                  />
+                  {/* Overlaid Badge */}
+                  <div className="absolute inset-x-3 bottom-3 bg-[#0B343D]/95 text-white p-3.5 rounded-lg backdrop-blur-sm border border-white/10 shadow-lg">
+                    <p className="text-[11px] font-medium leading-snug">
+                      Our mission is to create value, drive growth and build lasting partnerships.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* SECTION 5: WHAT OUR CLIENTS SAY */}
+            <div>
+              <h2 className="text-center text-xs font-extrabold uppercase tracking-widest text-[#0B2530] mb-8">
+                WHAT OUR CLIENTS SAY
+              </h2>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+                {testimonials.map((t, idx) => (
+                  <div
+                    key={idx}
+                    className="bg-white border border-slate-200/90 rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-all"
+                  >
+                    <div>
+                      {/* 5 Stars */}
+                      <div className="flex gap-1 text-amber-500 mb-3 text-sm">
+                        {"★".repeat(5)}
+                      </div>
+                      <p className="text-xs text-slate-600 leading-relaxed italic mb-4">
+                        &quot;{t.quote}&quot;
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
+                      <img
+                        src={t.avatar}
+                        alt={t.author}
+                        className="w-9 h-9 rounded-full object-cover border border-slate-200"
+                      />
+                      <div>
+                        <h4 className="font-bold text-xs text-[#0B2530]">
+                          {t.author}
+                        </h4>
+                        <p className="text-[10px] text-slate-500">{t.role}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Slider Dots Indicator */}
+              <div className="flex justify-center items-center gap-2 mt-6">
+                <span className="w-2.5 h-2.5 rounded-full bg-[#0B2530]" />
+                <span className="w-2 h-2 rounded-full bg-slate-300" />
+                <span className="w-2 h-2 rounded-full bg-slate-300" />
+              </div>
+            </div>
+
+          </div>
+
+          {/* ================= RIGHT SIDEBAR (4 COLS) ================= */}
+          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 h-fit">
+            
+            {/* SIDEBAR CARD 1: Start a Conversation */}
+            <div className="bg-[#0B343D] text-white p-6 rounded-xl shadow-md border border-teal-800/40">
+              <h3 className="font-bold text-lg text-white mb-2 font-display">
+                Start a Conversation
+              </h3>
+              <p className="text-xs text-slate-200 mb-6 leading-relaxed">
+                Let&apos;s discuss how we can help you achieve your growth goals.
+              </p>
+              <Link href="/contact" className="block w-full">
+                <button className="w-full bg-[#EB6A4C] hover:bg-[#d8583a] text-white py-3 px-4 rounded-md font-semibold text-xs flex items-center justify-center gap-2 transition-all shadow-sm">
+                  Book Consultation <ArrowRight className="w-4 h-4" />
+                </button>
+              </Link>
+            </div>
+
+            {/* SIDEBAR CARD 2: Download Brochure */}
+            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
+              <div className="w-9 h-9 rounded-lg bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-3">
+                <FileText className="w-5 h-5" />
+              </div>
+              <h4 className="font-bold text-sm text-[#0B2530]">Download Brochure</h4>
+              <p className="text-xs text-slate-500 mt-1 mb-3">
+                Get detailed insights into our services and approach.
+              </p>
+              <a
+                href="/contact"
+                className="text-xs font-bold text-[#0F6B82] flex items-center gap-1 hover:underline"
+              >
+                Download Now <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+
+            {/* SIDEBAR CARD 3: Contact an Expert */}
+            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
+              <div className="w-9 h-9 rounded-lg bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-3">
+                <User className="w-5 h-5" />
+              </div>
+              <h4 className="font-bold text-sm text-[#0B2530]">Contact an Expert</h4>
+              <p className="text-xs text-slate-500 mt-1 mb-2">
+                Speak with one of our specialists today.
+              </p>
+              <a
+                href="tel:+918008922112"
+                className="text-sm font-extrabold text-[#0F6B82] hover:underline flex items-center gap-1.5"
+              >
+                <Phone className="w-3.5 h-3.5" />
+                +91 80089 22112
+              </a>
+            </div>
+
+            {/* SIDEBAR CARD 4: Our Related Services */}
+            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#0B2530] mb-3 pb-2 border-b border-slate-100">
+                Our Related Services
+              </h4>
+              <ul className="space-y-2.5">
+                {relatedServices.map((rel, idx) => (
+                  <li key={idx}>
+                    <Link
+                      href={rel.href}
+                      className="flex items-center justify-between text-xs text-slate-700 font-medium hover:text-[#0F6B82] transition-colors group py-1"
+                    >
+                      <span>{rel.label}</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0F6B82] group-hover:translate-x-0.5 transition-transform" />
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* SIDEBAR CARD 5: FREQUENTLY ASKED QUESTIONS */}
+            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
+              <h4 className="font-bold text-xs uppercase tracking-wider text-[#0B2530] mb-4">
+                FREQUENTLY ASKED QUESTIONS
+              </h4>
+              <div className="space-y-3">
+                {faqs.map((faq, idx) => {
+                  const isOpen = openFaq === idx;
+                  return (
+                    <div
+                      key={idx}
+                      className="border border-slate-100 rounded-lg overflow-hidden transition-colors"
+                    >
+                      <button
+                        onClick={() => toggleFaq(idx)}
+                        className="w-full text-left p-3 text-xs font-semibold text-[#0B2530] flex items-center justify-between gap-2 hover:bg-slate-50 transition-colors"
+                      >
+                        <span>{faq.question}</span>
+                        {isOpen ? (
+                          <Minus className="w-3.5 h-3.5 text-[#0F6B82] shrink-0" />
+                        ) : (
+                          <Plus className="w-3.5 h-3.5 text-slate-400 shrink-0" />
+                        )}
+                      </button>
+                      {isOpen && (
+                        <div className="px-3 pb-3 text-[11px] text-slate-500 leading-relaxed border-t border-slate-100 pt-2 bg-slate-50/50">
+                          {faq.answer}
+                        </div>
+                      )}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        {/* 4. BOTTOM FULL-WIDTH CTA BANNER */}
+        <div className="bg-[#0B2530] text-white py-10 px-6 sm:px-10 rounded-2xl shadow-xl mt-16 flex flex-col md:flex-row justify-between items-center gap-6 border border-white/10">
+          <div className="flex flex-col gap-1 text-center md:text-left">
+            <h3 className="text-xl sm:text-2xl font-bold text-white font-display">
+              Ready to grow through strategic acquisitions?
+            </h3>
+            <p className="text-xs sm:text-sm text-slate-300">
+              Let&apos;s discuss your next move and build the future together.
+            </p>
+          </div>
+          <Link href="/contact" className="shrink-0">
+            <button className="bg-[#EB6A4C] hover:bg-[#d8583a] text-white px-7 py-3.5 rounded-md font-semibold text-sm flex items-center gap-2 transition-all shadow-lg hover:shadow-orange-500/20">
+              Schedule Consultation <ArrowRight className="w-4 h-4" />
             </button>
           </Link>
         </div>
