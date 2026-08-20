@@ -17,27 +17,24 @@ import {
 export default function LeadershipSection() {
   const leaders = [
     {
-      name: "Michael Anderson",
-      role: "Managing Partner",
-      bio: "20+ years of experience in M&A advisory across multi-industries.",
-      image:
-        "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop",
+      name: "Rajesh Gade (RG)",
+      role: "Founder, Advisor & Sutradhar",
+      bio: "38+ years across IT, Communications and Healthcare. Business Leadership, Entrepreneurship and M&A Advisory.",
+      image: "/images/rajesh-gade.png",
       linkedin: "https://linkedin.com",
     },
     {
-      name: "Sarah Williams",
-      role: "Partner",
-      bio: "Expert in cross-border transactions and strategic advisory.",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop",
+      name: "Aroop M. Cherian",
+      role: "Valuation & Business Modelling",
+      bio: "15+ years Big Four experience (KPMG & Deloitte) valuing business interests and intellectual property.",
+      image: "/images/advisors/aroop-cherian.jpg",
       linkedin: "https://linkedin.com",
     },
     {
-      name: "David Thompson",
-      role: "Partner",
-      bio: "Specialized in mid-market M&A and business transformation.",
-      image:
-        "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop",
+      name: "Arindam Chakraborty",
+      role: "Strategy & Business Leadership",
+      bio: "35 years of strategic leadership scaling and exiting IT businesses with Fortune 100 client relationships.",
+      image: "/images/advisors/arindam-chakraborty.jpg",
       linkedin: "https://linkedin.com",
     },
   ];
@@ -73,7 +70,7 @@ export default function LeadershipSection() {
               key={idx}
               index={idx}
               hoverShadow="0 24px 60px -16px rgba(15,107,130,0.15), 0 12px 28px -8px rgba(0,0,0,0.05)"
-              className="rounded-3xl bg-[#FAFBFD] border border-slate-200 overflow-hidden flex flex-col group"
+              className="rounded-3xl bg-[#FAFBFD] border border-slate-200 overflow-hidden flex flex-col justify-between group"
             >
               {/* Photo — phone mockup reveal (scale + rotateX + shadow) */}
               <motion.div

@@ -2,13 +2,13 @@ import { Metadata } from "next";
 
 export const siteConfig = {
   name: "Exigo Consulting",
-  description: "Elite M&A, Fundraising, Strategy, and Executive Search advisory firm guiding scaling enterprises to market leadership.",
+  description: "Founder-led M&A, fundraising, business consulting and executive talent advisory for IT services, IT staffing and technology companies in India and global markets.",
   url: "https://exigo-consulting.com",
   ogImage: "/images/logo/og-image.jpg",
   contact: {
-    email: "info@exigo-consulting.com",
+    email: "rg@exigoconsulting.in",
     phone: "+91 80089 22112",
-    address: "Level 1, Suite # 11, Tourism Plaza, Begumpet, Greenland's-Hyderabad. Telangana-India-500016."
+    address: "Level 1, Suite #11, Tourism Plaza, Begumpet, Hyderabad, Telangana 500016, India"
   }
 };
 

@@ -10,13 +10,13 @@ import LeadershipSection from "@/components/sections/LeadershipSection";
 import TransformCtaBanner from "@/components/sections/TransformCtaBanner";
 
 export const metadata = constructMetadata({
-  title: "About Exigo - Corporate M&A Advisory",
-  description: "Learn about Exigo Consulting, our practice mandates, senior-led execution model, and transformative M&A advisory services."
+  title: "About Exigo Consulting | Founder-Led M&A Advisory",
+  description: "Learn about Exigo Consulting, a Hyderabad-based founder-led advisory firm focused on M&A, fundraising, business consulting and talent for IT services and staffing companies."
 });
 
 export default function AboutPage() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen bg-white select-none">
       <HeroSection />
       <IndustryLeaders />
       <AboutExigoSection />

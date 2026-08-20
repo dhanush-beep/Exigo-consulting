@@ -1,592 +1,167 @@
-"use client";
-
-import React, { useState } from "react";
+import React from "react";
 import Link from "next/link";
+import Image from "next/image";
+import { constructMetadata } from "@/lib/metadata";
 import Container from "@/components/ui/Container";
-import {
-  ArrowRight,
-  ArrowDown,
-  Users,
-  UserCheck,
-  Award,
-  ShieldCheck,
-  Lightbulb,
-  BarChart3,
-  Network,
-  Trophy,
-  Coins,
-  Target,
-  FileText,
-  User,
-  Plus,
-  Minus,
-  Handshake,
-  Briefcase,
-  UserPlus,
-  Phone
-} from "lucide-react";
+import { ArrowRight, CheckCircle2, Users, Target, ShieldCheck } from "lucide-react";
+
+export const metadata = constructMetadata({
+  title: "Executive Search & IT Talent Acquisition | Exigo Consulting",
+  description: "Founder-led executive search and talent acquisition for IT services, staffing, SaaS, GCC and technology companies across India and partner markets."
+});
 
 export default function TalentAcquisitionPage() {
-  const [openFaq, setOpenFaq] = useState<number | null>(null);
+  const whyExigo = [
+    { title: "Domain Depth", desc: "Cloud, Cybersecurity, AI/ML, Data, CRM, ERP, Infrastructure, QA, Product, PMO and adjacent technology functions." },
+    { title: "Speed with Relevance", desc: "Curated shortlists targeted to the success profile rather than high-volume CV forwarding." },
+    { title: "Bench + Passive Networks", desc: "Access to ready-to-deploy and passive talent communities through sector relationships." },
+    { title: "Founder-Led Attention", desc: "Senior involvement for strategic and leadership mandates." },
+    { title: "Transparent Process", desc: "Pipeline visibility, agreed SLAs and measurable progress." }
+  ];
 
-  const toggleFaq = (index: number) => {
-    setOpenFaq(openFaq === index ? null : index);
-  };
-
-  const servicesList = [
-    {
-      title: "Executive & C-Suite Search",
-      description:
-        "Retained search mandates for CEOs, CFOs, CTOs, and Managing Directors across industries.",
-      icon: Users
-    },
-    {
-      title: "Board & Independent Advisors",
-      description:
-        "Placing experienced independent board directors and governance committee members.",
-      icon: ShieldCheck
-    },
-    {
-      title: "Compensation & Equity Structuring",
-      description:
-        "Benchmarking C-level compensation packages, ESOP pools, and executive retention incentives.",
-      icon: Briefcase
-    },
-    {
-      title: "Leadership Succession Planning",
-      description:
-        "Long-term talent mapping, leadership pipeline audit, and founder-to-professional transition.",
-      icon: UserPlus
-    }
+  const whatWeDo = [
+    { title: "Permanent / FTE Hiring", desc: "Core technology, delivery, product, data, cloud, security, enterprise applications, PM/BA, presales and supporting leadership roles." },
+    { title: "Contract-to-Hire", desc: "Flexible talent deployment for project ramps, utilization spikes and rapid client onboarding, with conversion pathways where appropriate." },
+    { title: "Executive Search", desc: "Discreet, research-led search for Practice Heads, BU and Delivery Leaders, Country Heads, CXOs, Sales Leaders and other high-impact positions." }
   ];
 
   const processSteps = [
-    { number: "01", title: "Mandate Brief", icon: Lightbulb },
-    { number: "02", title: "Talent Mapping", icon: BarChart3 },
-    { number: "03", title: "Shortlisting", icon: Network },
-    { number: "04", title: "Executive Evaluation", icon: UserCheck },
-    { number: "05", title: "Board Interview", icon: ShieldCheck },
-    { number: "06", title: "Comp Negotiation", icon: Award },
-    { number: "07", title: "Onboarding", icon: Handshake }
-  ];
-
-  const stats = [
-    {
-      icon: Trophy,
-      value: "500+",
-      label: "Leadership Placements",
-      sublabel: "Across C-suite & Board levels"
-    },
-    {
-      icon: Coins,
-      value: "95%",
-      label: "Retention Rate",
-      sublabel: "After 2+ years in role"
-    },
-    {
-      icon: Users,
-      value: "18+",
-      label: "Years Experience",
-      sublabel: "In executive recruitment"
-    },
-    {
-      icon: Target,
-      value: "30 Days",
-      label: "Avg Shortlist Time",
-      sublabel: "High-precision candidates"
-    }
-  ];
-
-  const testimonials = [
-    {
-      quote:
-        "Exigo identified and placed our Chief Technology Officer within 45 days. The candidate fit is exceptional.",
-      author: "Vikram Rungta",
-      role: "Founder, CloudScale Technologies",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80"
-    },
-    {
-      quote:
-        "Their understanding of C-level compensation frameworks and equity incentives was invaluable.",
-      author: "Ritu Sengupta",
-      role: "Board Member, GrowthVentures",
-      avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
-    },
-    {
-      quote:
-        "Exigo helped us structure our advisory board with veteran industry leaders who accelerate our scale.",
-      author: "Tarun Kapoor",
-      role: "CEO, BioPharma India",
-      avatar: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=200&q=80"
-    }
-  ];
-
-  const faqs = [
-    {
-      question: "What leadership levels do you recruit for?",
-      answer:
-        "We focus exclusively on executive leadership: CEOs, CFOs, CTOs, COOs, VPs, and Board Directors."
-    },
-    {
-      question: "How long does an executive search take?",
-      answer:
-        "Initial qualified candidate shortlists are delivered within 3 to 4 weeks; full placement usually takes 60 to 90 days."
-    },
-    {
-      question: "Do you offer placement guarantees?",
-      answer:
-        "Yes, all executive search mandates include a formal replacement guarantee period."
-    },
-    {
-      question: "How do you handle confidential searches?",
-      answer:
-        "We execute all executive searches under strict non-disclosure agreements with discreet market outreach."
-    }
-  ];
-
-  const relatedServices = [
-    { label: "Mergers & Acquisitions", href: "/services/mergers-acquisitions" },
-    { label: "Fundraising Services", href: "/services/fundraising" },
-    { label: "Business Consulting", href: "/services/business-consulting" },
-    { label: "Other Services", href: "/services/other-services" }
+    "1. Intake & success profile",
+    "2. Market mapping & sourcing",
+    "3. Assessment",
+    "4. Curated shortlist",
+    "5. Interview orchestration",
+    "6. Offer & closure",
+    "7. Post-joining follow-through"
   ];
 
   return (
-    <div className="bg-[#F8FAFC] min-h-screen text-[#1E293B]">
-      {/* 1. HERO SECTION matching exact template */}
-      <section className="relative bg-[#091D2C] text-white min-h-[500px] lg:min-h-[540px] flex items-center overflow-hidden w-full">
-        {/* Right-side hero background image with gradient fade to left */}
-        <div className="absolute inset-0 z-0 flex justify-end pointer-events-none">
-          <div className="w-full lg:w-[58%] h-full relative">
-            <img
-              src="/images/talent_acquisition_hero.png"
-              alt="Talent Acquisition & Executive Search"
-              className="w-full h-full object-cover object-center"
-            />
-            {/* Smooth dark navy gradient overlay blending image into background */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#091D2C] via-[#091D2C]/85 to-transparent lg:via-[#091D2C]/60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#091D2C] via-transparent to-transparent lg:hidden" />
-          </div>
+    <div className="bg-[#FAFBFD] min-h-screen text-[#1E293B] select-none pb-20">
+      {/* 1. Hero */}
+      <section className="relative bg-[#091D2C] text-white py-20 lg:py-28 overflow-hidden">
+        {/* Background Image with Gradient Overlay matching reference design */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/images/talent_acquisition_hero.png"
+            alt="Talent Acquisition Background"
+            fill
+            className="object-cover object-right lg:object-[center_right] opacity-100"
+            priority
+          />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#091D2C_0%,#091D2C_38%,rgba(9,29,44,0.85)_52%,rgba(9,29,44,0.3)_70%,transparent_88%)]" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#091D2C]/60 via-transparent to-[#091D2C]/40" />
         </div>
 
-        {/* Hero Content */}
-        <Container className="w-full relative z-10 py-16 sm:py-20 lg:py-24">
-          <div className="max-w-xl lg:max-w-xl flex flex-col items-start text-left">
-            <span className="text-[#38BDF8] text-xs sm:text-sm font-bold uppercase tracking-[0.2em] mb-3">
-              EXPERTS IN
+        <Container className="relative z-10">
+          <div className="max-w-3xl">
+            <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-[0.2em] mb-3 block">
+              TALENT ADVISORY
             </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-[1.08] font-display">
-              Talent Acquisition &amp;<br />
-              Executive Search
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-display mb-6">
+              The Right People Are Part of the Growth Story
             </h1>
-            {/* Orange Accent Underline */}
-            <div className="w-16 h-[3.5px] bg-[#EB6A4C] mt-4 mb-6 rounded-full" />
-            <p className="text-slate-300 text-base sm:text-xl font-normal leading-relaxed max-w-md">
-              Securing C-suite leaders and board<br className="hidden sm:inline" />
-              advisors to drive organizational growth.
+            <div className="w-16 h-1 bg-[#EB6A4C] mb-6 rounded-full" />
+            <p className="text-slate-300 text-base sm:text-lg font-normal leading-relaxed mb-8">
+              Exigo is the Sutradhar connecting business strategy with the people who can execute it. Our talent advisory combines sector understanding, curated networks and senior attention for critical technology and leadership hiring.
             </p>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link href="/contact">
-                <button className="px-7 py-3.5 bg-[#EB6A4C] hover:bg-[#d8583a] text-white text-sm sm:text-base font-semibold rounded-md flex items-center gap-2.5 transition-all shadow-lg hover:shadow-orange-500/20">
-                  Book Consultation <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
-              </Link>
-              <a href="#process">
-                <button className="px-6 py-3.5 bg-[#091D2C]/80 border border-white/40 hover:bg-white/10 text-white text-sm sm:text-base font-semibold rounded-md flex items-center gap-2.5 transition-all backdrop-blur-sm">
-                  Our Process <ArrowDown className="w-4 h-4 sm:w-5 sm:h-5" />
-                </button>
-              </a>
-            </div>
+            <Link href="/contact">
+              <button className="px-7 py-3.5 bg-[#EB6A4C] hover:bg-[#d8583a] text-white text-sm sm:text-base font-semibold rounded-xl flex items-center gap-2.5 transition-all shadow-lg">
+                <span>Discuss a Critical Hire</span>
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </Link>
           </div>
         </Container>
       </section>
 
-      {/* 2. TRUSTED BY LEADING COMPANIES LOGO BAR */}
-      <section className="bg-white border-b border-slate-200 py-8">
-        <Container>
-          <p className="text-center text-xs font-bold text-slate-400 tracking-widest uppercase mb-6">
-            TRUSTED BY LEADING COMPANIES
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-80 grayscale hover:grayscale-0 transition-all duration-500">
-            {/* Microsoft */}
-            <div className="flex items-center gap-2 font-bold text-slate-700 text-lg">
-              <div className="grid grid-cols-2 gap-0.5 w-4 h-4">
-                <span className="bg-[#F25022] rounded-[1px]" />
-                <span className="bg-[#7FBA00] rounded-[1px]" />
-                <span className="bg-[#00A4EF] rounded-[1px]" />
-                <span className="bg-[#FFB900] rounded-[1px]" />
-              </div>
-              <span className="font-semibold text-slate-800 text-base tracking-tight">Microsoft</span>
-            </div>
-
-            {/* Amazon */}
-            <div className="flex items-center font-bold text-slate-800 text-lg tracking-tight">
-              amazon
-            </div>
-
-            {/* Oracle */}
-            <div className="flex items-center font-black text-[#C7254E] tracking-widest text-base">
-              ORACLE
-            </div>
-
-            {/* TCS */}
-            <div className="flex items-center gap-1 font-bold text-slate-800 text-sm">
-              <span className="bg-slate-800 text-white px-1.5 py-0.5 rounded text-xs">tcs</span>
-              <span className="text-[10px] text-slate-500 uppercase tracking-tighter hidden sm:inline">Tata Consultancy Services</span>
-            </div>
-
-            {/* Infosys */}
-            <div className="flex items-center font-bold text-[#007CC3] text-base tracking-tight">
-              Infosys
-            </div>
-
-            {/* Adobe */}
-            <div className="flex items-center gap-1 font-bold text-slate-800 text-base">
-              <span className="text-[#FF0000] font-black text-xl">A</span>
-              <span className="text-slate-800">Adobe</span>
-            </div>
-          </div>
-        </Container>
-      </section>
-
-      {/* 3. MAIN CONTENT CONTAINER (TWO COLUMNS) */}
-      <Container className="py-14 sm:py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          {/* ================= LEFT MAIN CONTENT (8 COLS) ================= */}
-          <div className="lg:col-span-8 space-y-16">
-            
-            {/* SECTION 1: OUR SERVICES */}
-            <div>
-              <h2 className="text-center text-xs font-extrabold uppercase tracking-widest text-[#0B2530] mb-8">
-                OUR SERVICES
-              </h2>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                {servicesList.map((service, index) => {
-                  const Icon = service.icon;
-                  return (
-                    <div
-                      key={index}
-                      className="bg-white border border-slate-200/90 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300 flex flex-col justify-between group"
-                    >
-                      <div>
-                        <div className="w-12 h-12 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
-                          <Icon className="w-6 h-6" />
-                        </div>
-                        <h3 className="font-bold text-[#0B2530] text-base mb-2">
-                          {service.title}
-                        </h3>
-                        <p className="text-xs text-slate-500 leading-relaxed">
-                          {service.description}
-                        </p>
-                      </div>
-                      <div className="mt-5 flex justify-end">
-                        <span className="w-8 h-8 rounded-full bg-slate-50 text-[#EB6A4C] flex items-center justify-center group-hover:bg-[#EB6A4C] group-hover:text-white transition-all">
-                          <ArrowRight className="w-4 h-4" />
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* SECTION 2: OUR EXECUTIVE SEARCH PROCESS */}
-            <div id="process" className="pt-4">
-              <h2 className="text-center text-xs font-extrabold uppercase tracking-widest text-[#0B2530] mb-10">
-                OUR SEARCH PROCESS
-              </h2>
-
-              {/* Connected Steps Grid */}
-              <div className="relative">
-                {/* Connecting Line (Desktop) */}
-                <div className="hidden sm:block absolute top-[28px] left-[6%] right-[6%] h-[2px] border-t-2 border-dashed border-slate-300 z-0" />
-
-                <div className="grid grid-cols-2 sm:grid-cols-7 gap-4 relative z-10">
-                  {processSteps.map((step, idx) => {
-                    const Icon = step.icon;
-                    return (
-                      <div
-                        key={idx}
-                        className="flex flex-col items-center text-center group"
-                      >
-                        {/* Step Number Circle */}
-                        <div className="w-12 h-12 rounded-full bg-[#0B2530] text-[#FFFFFF] font-bold text-xs flex items-center justify-center shadow-md mb-3 border-2 border-white group-hover:scale-110 group-hover:bg-[#0F6B82] transition-all">
-                          {step.number}
-                        </div>
-                        {/* Icon Container */}
-                        <div className="w-10 h-10 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-2">
-                          <Icon className="w-5 h-5" />
-                        </div>
-                        {/* Label */}
-                        <span className="text-[11px] font-semibold text-[#0B2530] leading-tight max-w-[90px]">
-                          {step.title}
-                        </span>
-                      </div>
-                    );
-                  })}
-                </div>
-              </div>
-            </div>
-
-            {/* SECTION 3: STATS GRID */}
-            <div>
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-                {stats.map((stat, idx) => {
-                  const Icon = stat.icon;
-                  return (
-                    <div
-                      key={idx}
-                      className="bg-white border border-slate-200/90 rounded-xl p-5 text-center shadow-sm hover:shadow-md transition-all flex flex-col items-center justify-center"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-orange-50 text-[#EB6A4C] flex items-center justify-center mb-3">
-                        <Icon className="w-5 h-5" />
-                      </div>
-                      <span className="text-2xl sm:text-3xl font-extrabold text-[#0B2530]">
-                        {stat.value}
-                      </span>
-                      <span className="font-bold text-xs text-[#0B2530] mt-1">
-                        {stat.label}
-                      </span>
-                      <span className="text-[11px] text-slate-500 mt-0.5">
-                        {stat.sublabel}
-                      </span>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
-            {/* SECTION 4: ABOUT EXIGO CONSULTING */}
-            <div className="bg-white border border-slate-200/90 rounded-2xl p-6 sm:p-8 shadow-sm">
-              <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
-                {/* Left Text */}
-                <div className="md:col-span-7 flex flex-col items-start">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#0B2530] mb-3">
-                    ABOUT EXIGO CONSULTING
-                  </span>
-                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-6">
-                    Exigo Consulting offers premier executive search and leadership placement services, helping high-growth enterprises build elite executive teams and board leadership.
-                  </p>
-                  
-                  {/* Badges */}
-                  <div className="grid grid-cols-3 gap-3 w-full border-t border-slate-100 pt-5">
-                    <div className="flex flex-col items-center text-center p-2 rounded-lg bg-slate-50">
-                      <div className="w-7 h-7 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-1">
-                        <Award className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="font-bold text-xs text-[#0B2530]">18+ Years</span>
-                      <span className="text-[10px] text-slate-500">Industry Experience</span>
-                    </div>
-
-                    <div className="flex flex-col items-center text-center p-2 rounded-lg bg-slate-50">
-                      <div className="w-7 h-7 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-1">
-                        <UserCheck className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="font-bold text-xs text-[#0B2530]">Expert Team</span>
-                      <span className="text-[10px] text-slate-500">Domain Specialists</span>
-                    </div>
-
-                    <div className="flex flex-col items-center text-center p-2 rounded-lg bg-slate-50">
-                      <div className="w-7 h-7 rounded-full bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-1">
-                        <Handshake className="w-3.5 h-3.5" />
-                      </div>
-                      <span className="font-bold text-xs text-[#0B2530]">End-to-End</span>
-                      <span className="text-[10px] text-slate-500">Support</span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Image */}
-                <div className="md:col-span-5 relative rounded-xl overflow-hidden">
-                  <img
-                    src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80"
-                    alt="Exigo Consulting Headquarters"
-                    className="w-full h-64 object-cover rounded-xl"
-                  />
-                  {/* Overlaid Badge */}
-                  <div className="absolute inset-x-3 bottom-3 bg-[#0B343D]/95 text-white p-3.5 rounded-lg backdrop-blur-sm border border-white/10 shadow-lg">
-                    <p className="text-[11px] font-medium leading-snug">
-                      Our mission is to empower corporate growth through extraordinary talent.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* SECTION 5: WHAT OUR CLIENTS SAY */}
-            <div>
-              <h2 className="text-center text-xs font-extrabold uppercase tracking-widest text-[#0B2530] mb-8">
-                WHAT OUR CLIENTS SAY
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
-                {testimonials.map((t, idx) => (
-                  <div
-                    key={idx}
-                    className="bg-white border border-slate-200/90 rounded-xl p-5 shadow-sm flex flex-col justify-between hover:shadow-md transition-all"
-                  >
-                    <div>
-                      {/* 5 Stars */}
-                      <div className="flex gap-1 text-amber-500 mb-3 text-sm">
-                        {"★".repeat(5)}
-                      </div>
-                      <p className="text-xs text-slate-600 leading-relaxed italic mb-4">
-                        &quot;{t.quote}&quot;
-                      </p>
-                    </div>
-
-                    <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-                      <img
-                        src={t.avatar}
-                        alt={t.author}
-                        className="w-9 h-9 rounded-full object-cover border border-slate-200"
-                      />
-                      <div>
-                        <h4 className="font-bold text-xs text-[#0B2530]">
-                          {t.author}
-                        </h4>
-                        <p className="text-[10px] text-slate-500">{t.role}</p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Slider Dots Indicator */}
-              <div className="flex justify-center items-center gap-2 mt-6">
-                <span className="w-2.5 h-2.5 rounded-full bg-[#0B2530]" />
-                <span className="w-2 h-2 rounded-full bg-slate-300" />
-                <span className="w-2 h-2 rounded-full bg-slate-300" />
-              </div>
-            </div>
-
+      <Container className="py-16 space-y-16">
+        {/* 2. Why Exigo */}
+        <div>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F6B82] mb-2 block">
+              WHY EXIGO TALENT ADVISORY
+            </span>
+            <h2 className="text-3xl font-extrabold text-[#1B2730] font-display mb-3">
+              Sector Understanding &amp; Senior Attention
+            </h2>
+            <div className="w-12 h-1 bg-[#0F6B82] rounded-full mx-auto" />
           </div>
 
-          {/* ================= RIGHT SIDEBAR (4 COLS) ================= */}
-          <div className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 h-fit">
-            
-            {/* SIDEBAR CARD 1: Start a Conversation */}
-            <div className="bg-[#0B343D] text-white p-6 rounded-xl shadow-md border border-teal-800/40">
-              <h3 className="font-bold text-lg text-white mb-2 font-display">
-                Start a Conversation
-              </h3>
-              <p className="text-xs text-slate-200 mb-6 leading-relaxed">
-                Let&apos;s discuss how we can help you achieve your growth goals.
-              </p>
-              <Link href="/contact" className="block w-full">
-                <button className="w-full bg-[#EB6A4C] hover:bg-[#d8583a] text-white py-3 px-4 rounded-md font-semibold text-xs flex items-center justify-center gap-2 transition-all shadow-sm">
-                  Book Consultation <ArrowRight className="w-4 h-4" />
-                </button>
-              </Link>
-            </div>
-
-            {/* SIDEBAR CARD 2: Download Brochure */}
-            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
-              <div className="w-9 h-9 rounded-lg bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-3">
-                <FileText className="w-5 h-5" />
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyExigo.map((w, idx) => (
+              <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm">
+                <h3 className="text-lg font-bold text-[#1B2730] font-display mb-2">{w.title}</h3>
+                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{w.desc}</p>
               </div>
-              <h4 className="font-bold text-sm text-[#0B2530]">Download Brochure</h4>
-              <p className="text-xs text-slate-500 mt-1 mb-3">
-                Get detailed insights into our services and approach.
-              </p>
-              <a
-                href="/contact"
-                className="text-xs font-bold text-[#0F6B82] flex items-center gap-1 hover:underline"
-              >
-                Download Now <ArrowRight className="w-3.5 h-3.5" />
-              </a>
-            </div>
-
-            {/* SIDEBAR CARD 3: Contact an Expert */}
-            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
-              <div className="w-9 h-9 rounded-lg bg-[#EBF6F9] text-[#0F6B82] flex items-center justify-center mb-3">
-                <User className="w-5 h-5" />
-              </div>
-              <h4 className="font-bold text-sm text-[#0B2530]">Contact an Expert</h4>
-              <p className="text-xs text-slate-500 mt-1 mb-2">
-                Speak with one of our specialists today.
-              </p>
-              <a
-                href="tel:+918008922112"
-                className="text-sm font-extrabold text-[#0F6B82] hover:underline flex items-center gap-1.5"
-              >
-                <Phone className="w-3.5 h-3.5" />
-                +91 80089 22112
-              </a>
-            </div>
-
-            {/* SIDEBAR CARD 4: Our Related Services */}
-            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#0B2530] mb-3 pb-2 border-b border-slate-100">
-                Our Related Services
-              </h4>
-              <ul className="space-y-2.5">
-                {relatedServices.map((rel, idx) => (
-                  <li key={idx}>
-                    <Link
-                      href={rel.href}
-                      className="flex items-center justify-between text-xs text-slate-700 font-medium hover:text-[#0F6B82] transition-colors group py-1"
-                    >
-                      <span>{rel.label}</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-slate-400 group-hover:text-[#0F6B82] group-hover:translate-x-0.5 transition-transform" />
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* SIDEBAR CARD 5: FREQUENTLY ASKED QUESTIONS */}
-            <div className="bg-white border border-slate-200/90 p-5 rounded-xl shadow-sm">
-              <h4 className="font-bold text-xs uppercase tracking-wider text-[#0B2530] mb-4">
-                FREQUENTLY ASKED QUESTIONS
-              </h4>
-              <div className="space-y-3">
-                {faqs.map((faq, idx) => {
-                  const isOpen = openFaq === idx;
-                  return (
-                    <div
-                      key={idx}
-                      className="border border-slate-100 rounded-lg overflow-hidden transition-colors"
-                    >
-                      <button
-                        onClick={() => toggleFaq(idx)}
-                        className="w-full text-left p-3 text-xs font-semibold text-[#0B2530] flex items-center justify-between gap-2 hover:bg-slate-50 transition-colors"
-                      >
-                        <span>{faq.question}</span>
-                        {isOpen ? (
-                          <Minus className="w-3.5 h-3.5 text-[#0F6B82] shrink-0" />
-                        ) : (
-                          <Plus className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                        )}
-                      </button>
-                      {isOpen && (
-                        <div className="px-3 pb-3 text-[11px] text-slate-500 leading-relaxed border-t border-slate-100 pt-2 bg-slate-50/50">
-                          {faq.answer}
-                        </div>
-                      )}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
-
+            ))}
           </div>
         </div>
 
-        {/* 4. BOTTOM FULL-WIDTH CTA BANNER */}
-        <div className="bg-[#0B2530] text-white py-10 px-6 sm:px-10 rounded-2xl shadow-xl mt-16 flex flex-col md:flex-row justify-between items-center gap-6 border border-white/10">
-          <div className="flex flex-col gap-1 text-center md:text-left">
-            <h3 className="text-xl sm:text-2xl font-bold text-white font-display">
-              Ready to build your executive leadership team?
-            </h3>
-            <p className="text-xs sm:text-sm text-slate-300">
-              Let&apos;s discuss your next move and build the future together.
+        {/* 3. What We Do */}
+        <div>
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#0F6B82] mb-2 block">
+              WHAT WE DO
+            </span>
+            <h2 className="text-3xl font-extrabold text-[#1B2730] font-display mb-3">
+              Flexible Engagement Models
+            </h2>
+            <div className="w-12 h-1 bg-[#DE7A66] rounded-full mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {whatWeDo.map((w, idx) => (
+              <div key={idx} className="p-6 rounded-2xl bg-white border border-slate-200/90 shadow-sm flex flex-col justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-[#1B2730] font-display mb-3">{w.title}</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">{w.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 4. Our Process */}
+        <div className="p-8 rounded-3xl bg-[#091A26] text-white">
+          <div className="text-center max-w-3xl mx-auto mb-10">
+            <span className="text-xs font-extrabold uppercase tracking-widest text-[#3A9FB7] mb-2 block">
+              OUR PROCESS
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display mb-3">
+              7-Step Execution Methodology
+            </h2>
+            <div className="w-12 h-1 bg-[#DE7A66] rounded-full mx-auto" />
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+            {processSteps.map((step, idx) => (
+              <div key={idx} className="p-4 rounded-xl bg-white/5 border border-white/10 text-center">
+                <span className="text-xs font-bold text-white font-display">{step}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* 5. Coverage */}
+        <div className="bg-white border border-slate-200/90 rounded-2xl p-8 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 className="text-base font-bold text-[#1B2730] font-display mb-3 text-[#0F6B82]">Functions</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Engineering, Data/AI/ML, Cloud/DevOps/SRE, Cybersecurity, QA/SDET, ERP/CRM, Product, PM/BA, Presales, Delivery, Revenue/GTM and Corporate functions.
             </p>
           </div>
-          <Link href="/contact" className="shrink-0">
-            <button className="bg-[#EB6A4C] hover:bg-[#d8583a] text-white px-7 py-3.5 rounded-md font-semibold text-sm flex items-center gap-2 transition-all shadow-lg hover:shadow-orange-500/20">
-              Schedule Consultation <ArrowRight className="w-4 h-4" />
-            </button>
-          </Link>
+          <div>
+            <h3 className="text-base font-bold text-[#1B2730] font-display mb-3 text-[#0F6B82]">Industries</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              IT Services &amp; Staffing, SaaS/Product, GCCs/Captives, BFSI Technology, Healthcare IT, Retail/E-commerce and Manufacturing Technology.
+            </p>
+          </div>
+          <div>
+            <h3 className="text-base font-bold text-[#1B2730] font-display mb-3 text-[#0F6B82]">Geography</h3>
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+              India, with international coverage through relevant partner networks.
+            </p>
+          </div>
         </div>
       </Container>
     </div>

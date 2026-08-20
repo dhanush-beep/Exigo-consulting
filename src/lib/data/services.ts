@@ -5,100 +5,100 @@ export const services: Service[] = [
     id: "m-and-a",
     slug: "mergers-acquisitions",
     title: "Mergers & Acquisitions",
-    description: "End-to-end strategic advisory for buy-side, sell-side, valuations, and seamless post-merger integration.",
+    description: "End-to-end buy-side and sell-side M&A advisory for IT Services, IT Staffing and Technology companies — from opportunity identification, positioning and valuation through negotiations, diligence, structuring and closure.",
     icon: "Briefcase",
     features: [
-      "Buy-side & Sell-side Advisory",
-      "Corporate Valuations & Fairness Opinions",
-      "Due Diligence Coordination",
-      "Post-Merger Integration & Synergy Capture",
-      "Strategic Joint Ventures & Partnerships"
+      "Buy-Side & Sell-Side Advisory",
+      "Business & Transaction Readiness Review",
+      "Positioning & Confidential Teaser Support",
+      "Buyer/Target Mapping & Curated Outreach",
+      "Valuation Discussion & Diligence Coordination"
     ],
     benefits: [
-      "Maximize transaction value through rigorous preparation and market positioning.",
-      "Minimize transition risks with structured due diligence and comprehensive integration planning.",
-      "Access a global network of corporate buyers and strategic target companies."
+      "Founder-led senior involvement through every transaction phase.",
+      "Discreet, curated counterparty mapping over indiscriminate outreach.",
+      "Sutradhar approach aligning valuation, timing, and strategic fit."
     ],
-    detailedDescription: "Exigo Consulting offers premier Mergers & Acquisitions advisory. We guide companies through complex transactions, ensuring strategic alignment, correct valuations, and structured execution. Whether you are seeking an exit or looking to acquire strategic assets, our hands-on partner-led approach ensures maximum value and minimal transaction friction."
+    detailedDescription: "The right deal is not simply found. It is understood, positioned, negotiated and carried through. Exigo acts as the Sutradhar across the transaction — connecting strategic intent with the right counterparty and keeping every critical thread aligned through closure."
   },
   {
     id: "fundraising",
     slug: "fundraising",
-    title: "Fundraising & Capital Scale",
-    description: "Accelerate your growth with our venture capital, private equity, debt structuring, and capital allocation services.",
+    title: "Fundraising Advisory",
+    description: "Capital strategy, investor positioning, valuation support and curated introductions to investors who understand technology, services and staffing business models.",
     icon: "TrendingUp",
     features: [
-      "Venture Capital & Private Equity Advisory",
-      "Structured Debt & Mezzanine Financing",
-      "Pitch Deck Refinement & Financial Modeling",
-      "Investor Roadshow Strategy & Outreach",
-      "Term Sheet Negotiation Support"
+      "Capital Strategy & Investor Readiness",
+      "Sector-Literate Opportunity Positioning",
+      "Valuation & Financial Model Preparation",
+      "Curated Investor Introductions",
+      "Term Sheet & Deal Negotiation Support"
     ],
     benefits: [
-      "Secure capital under optimal terms by aligning with the right strategic investors.",
-      "Enhance financial narratives to stand out to institutional VCs and PE firms.",
-      "Save founder/executive time by leveraging our structured outreach and follow-up processes."
+      "Frame your business in language technology & staffing investors understand.",
+      "Reach relevant investors with strong strategic and cheque-size fit.",
+      "Maintain context and alignment across founder, investor, and operational narratives."
     ],
-    detailedDescription: "Securing capital requires more than a pitch deck; it requires a compelling strategic narrative and robust financial foundation. Exigo Consulting helps scaling firms structure their rounds, build institutional-grade models, and gain access to a curated network of angel investors, venture capitalists, and private equity funds."
+    detailedDescription: "Exigo helps IT Services, IT Staffing and Technology businesses prepare for and navigate fundraising — connecting business strategy, valuation, investor expectations and the right capital relationships."
   },
   {
     id: "business-consulting",
     slug: "business-consulting",
-    title: "Business Strategy & Consulting",
-    description: "Unlock operational excellence, navigate market entry, and execute business growth frameworks.",
+    title: "Business Consulting",
+    description: "Practical growth and operational advisory, including Build-Operate-Transfer models, market entry (GTM), business readiness and value-creation initiatives that strengthen the company before a transaction — or simply make it better.",
     icon: "Layers",
     features: [
-      "Growth Strategy & Market Entry Planning",
-      "Operational Process Optimization",
-      "Corporate Restructuring & Performance Improvement",
-      "Go-to-Market (GTM) Strategy Design",
-      "Technology & Digital Roadmap Planning"
+      "Build-Operate-Transfer (BOT) Delivery Models",
+      "Operational & Margin Optimization",
+      "Market Entry & Strategic Positioning (GTM)",
+      "M&A & Fundraising Readiness",
+      "Value Creation & Growth Priorities"
     ],
     benefits: [
-      "Drive sustainable revenue growth through structured market expansion plans.",
-      "Reduce operational waste and increase profit margins with optimized processes.",
-      "Align leadership teams around unified strategic objectives and key performance indicators."
+      "Build operational strength long before an exit or fundraising conversation.",
+      "Mitigate future diligence questions early in the growth cycle.",
+      "Practical execution focus tailored specifically for IT and staffing models."
     ],
-    detailedDescription: "In an ever-changing commercial landscape, static strategies fail. Exigo Consulting collaborates with management teams to design dynamic growth strategies, optimize core operations, and structure scalable organizations. We focus on actionable execution rather than theoretical slides, ensuring real bottom-line impact."
+    detailedDescription: "Operational discipline, market positioning and leadership depth create value long before an M&A conversation begins. Exigo works with technology businesses to strengthen these fundamentals."
   },
   {
     id: "talent-acquisition",
     slug: "talent-acquisition",
-    title: "Talent Acquisition & Exec Search",
-    description: "Build high-performing leadership teams through executive search and targeted talent strategy.",
+    title: "Executive Search & Talent Advisory",
+    description: "Leadership and specialist hiring for technology businesses, including Practice Heads, Delivery Leaders, Country Heads, Revenue Leaders and CXOs, supported by deep sector networks.",
     icon: "Users",
     features: [
-      "C-Suite & VP Executive Search",
-      "Board of Directors Placements",
-      "Comp Planning & Salary Benchmarking",
-      "Leadership Assessments & Succession Planning",
-      "Talent Brand & Recruitment Strategy Setup"
+      "Executive Search for Practice Heads & CXOs",
+      "Permanent / FTE Technology Hiring",
+      "Contract-to-Hire Ramps",
+      "Market Mapping & Curated Shortlists",
+      "Post-Joining Follow-Through & Retention"
     ],
     benefits: [
-      "Attract top-tier, passive leadership talent that isn't active on traditional job boards.",
-      "Ensure cultural and strategic alignment through rigorous candidate screening.",
-      "Reduce cost-of-hire and ramp-up times by recruiting proven executives."
+      "Speed with relevance: curated shortlists targeted to success profiles.",
+      "Deep domain coverage across Cloud, Cyber, AI/ML, ERP, and Delivery.",
+      "Access to ready-to-deploy and passive talent communities."
     ],
-    detailedDescription: "A company is only as good as its leadership team. At Exigo Consulting, we specialize in high-touch executive search for growing organizations. We identify, evaluate, and place exceptional leaders who can drive change, inspire teams, and execute long-term strategic plans."
+    detailedDescription: "Exigo is the Sutradhar connecting business strategy with the people who can execute it. Our talent advisory combines sector understanding, curated networks and senior attention for critical technology and leadership hiring."
   },
   {
     id: "other-services",
     slug: "other-services",
-    title: "Strategic Advisory & Other Services",
-    description: "Bespoke consulting services including family office advisory, crisis management, and joint ventures.",
+    title: "Transaction & Specialist Support",
+    description: "Access to valuation, financial diligence, legal, governance, compliance and market-positioning expertise through Exigo’s strategic advisor ecosystem.",
     icon: "Globe",
     features: [
-      "Family Office Advisory & Wealth Strategy",
-      "Crisis Management & Turnaround Strategy",
-      "Joint Venture Structures & Negotiations",
-      "Advisory Board Setup & Governance",
-      "Bespoke Strategic Research"
+      "Financial & Accounting Due Diligence",
+      "Legal & Regulatory Transaction Support",
+      "Governance & Secretarial Compliance",
+      "Digital Positioning & External Clarity",
+      "Integrated Specialist Coordination"
     ],
     benefits: [
-      "Address highly specific corporate challenges with custom-tailored consulting squads.",
-      "Gain objective, independent insights for critical board decisions.",
-      "Leverage decades of cross-industry expertise for unstructured business problems."
+      "Single-point coordination through the Sutradhar framework.",
+      "Preserve commercial context across financial, legal, and secretarial workstreams.",
+      "Experienced specialists from KPMG, Deloitte, ICSI, and senior legal practice."
     ],
-    detailedDescription: "Beyond standard consulting categories, corporate leaders face unique, unstructured challenges that require senior advisory intervention. Exigo Consulting provides bespoke advisory services, acting as a trusted sounding board and execution partner for boards of directors, founders, and family offices."
+    detailedDescription: "M&A, fundraising and strategic growth depend on more than the lead advisor. Financial clarity, legal readiness, governance and market positioning can determine whether a mandate moves smoothly or stalls."
   }
 ];

@@ -92,7 +92,7 @@ export default function HeroSection() {
               className="inline-flex items-center gap-2"
             >
               <span className="text-xs sm:text-sm font-extrabold tracking-[0.25em] uppercase text-[#3A9FB7]">
-                EXPERIENCE • STRATEGY • RESULTS
+                FOUNDER-LED • SECTOR FOCUSED • SUTRADHAR
               </span>
             </motion.div>
 
@@ -103,7 +103,7 @@ export default function HeroSection() {
               delay={0.4}
               className="text-4xl sm:text-5xl lg:text-6xl font-[800] tracking-tight leading-[1.1] text-white font-display"
             >
-              Your Trusted M&amp;A Consulting Partner
+              More Than an Advisor. The Sutradhar of the Transaction.
             </AnimatedText>
 
             {/* Paragraph — block reveal */}
@@ -113,7 +113,7 @@ export default function HeroSection() {
               delay={0.6}
               className="text-base sm:text-lg text-slate-300 max-w-2xl font-normal leading-relaxed"
             >
-              We help businesses navigate mergers and acquisitions with confidence. From strategy to successful closing, we create value at every step.
+              Exigo Consulting works with founders, promoters, leadership teams, buyers and investors across IT Services, IT Staffing and Technology. Our role is to connect strategy with execution — and the right opportunity with the right people.
             </AnimatedText>
 
             {/* CTA Buttons — card reveal pattern */}
@@ -129,18 +129,8 @@ export default function HeroSection() {
                   whileTap={buttonInteraction.tap}
                   className="px-7 py-3.5 rounded-full bg-[#0F6B82] hover:bg-[#155B6D] text-white font-semibold text-base shadow-[var(--shadow-button)] hover:shadow-[var(--shadow-button-hover)] flex items-center gap-2 group color-transition"
                 >
-                  <span>Start Consultation</span>
+                  <span>Start a Confidential Conversation</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                </motion.button>
-              </Link>
-
-              <Link href="/services">
-                <motion.button
-                  whileHover={buttonInteraction.hover}
-                  whileTap={buttonInteraction.tap}
-                  className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-base border border-white/20 hover:border-white/40 backdrop-blur-md color-transition"
-                >
-                  Our Services
                 </motion.button>
               </Link>
             </motion.div>

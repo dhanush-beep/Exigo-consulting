@@ -21,33 +21,39 @@ export default function ServicesAdvisoryGrid() {
   const services = [
     {
       icon: TrendingUp,
-      title: "Buy-Side Advisory",
-      description: "Identify and evaluate acquisition opportunities that align with your growth strategy.",
+      title: "Buy-Side M&A Advisory",
+      description: "Target identification, assessment, approach, negotiation and transaction coordination.",
       href: "/services/mergers-acquisitions",
     },
     {
       icon: DollarSign,
-      title: "Sell-Side Advisory",
-      description: "Maximize your business value and achieve optimal outcomes in your sale process.",
+      title: "Sell-Side M&A Advisory",
+      description: "Business positioning, buyer mapping, process management, valuation discussions and closure support.",
       href: "/services/mergers-acquisitions",
     },
     {
-      icon: ShieldCheck,
-      title: "Due Diligence",
-      description: "Comprehensive risk assessment and financial, legal, and operational due diligence.",
-      href: "/services/business-consulting",
+      icon: Compass,
+      title: "Fundraising Advisory",
+      description: "Capital strategy, investor readiness, positioning, valuation support and introductions.",
+      href: "/services/fundraising",
     },
     {
       icon: Puzzle,
-      title: "Integration Planning",
-      description: "Seamless post-merger integration to unlock synergies and drive growth.",
+      title: "Business Consulting",
+      description: "Growth, operational improvement, market entry (GTM), BOT and transaction readiness.",
       href: "/services/business-consulting",
     },
     {
+      icon: ShieldCheck,
+      title: "Executive Search & Talent",
+      description: "Leadership and critical hiring for technology-led organizations.",
+      href: "/services/talent-acquisition",
+    },
+    {
       icon: Compass,
-      title: "Strategic Consulting",
-      description: "Strategic insights and advisory to drive long-term business transformation.",
-      href: "/services/business-consulting",
+      title: "Specialist Support",
+      description: "Coordinated access to valuation, finance, legal, governance and compliance expertise.",
+      href: "/services/other-services",
     },
   ];
 
@@ -75,8 +81,8 @@ export default function ServicesAdvisoryGrid() {
           </AnimatedText>
         </div>
 
-        {/* 5 Cards Grid — staggered AnimatedCards with AnimatedIcons */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        {/* 6 Cards Grid — staggered AnimatedCards with AnimatedIcons */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, idx) => {
             const Icon = service.icon;
             return (
