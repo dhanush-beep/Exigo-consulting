@@ -65,13 +65,12 @@ export default function Hero() {
       </div>
 
       <Container className="relative z-10 text-center flex flex-col items-center py-16 sm:py-20">
-        {/* Main Heading: Page Load Refresh Animation */}
+        {/* Main Heading with Page Load Sweep Animations */}
         <h1
-          className="text-5xl sm:text-6xl md:text-7xl lg:text-[82px] font-[800] tracking-tight max-w-5xl leading-[1.08] mb-7 select-none"
+          className="text-4xl sm:text-6xl lg:text-[76px] font-[800] tracking-tight max-w-5xl leading-[1.08] mb-7 select-none"
           style={{ fontFamily: "var(--font-outfit), sans-serif" }}
         >
           <div className="relative inline-block">
-            {/* Step 1: Hollow stroke wireframe base appears first (0ms) */}
             <span
               className="inline-block animate-title-stroke"
               style={{
@@ -79,9 +78,8 @@ export default function Hero() {
                 color: "transparent",
               }}
             >
-              Strategic M&amp;A Solutions
+              The Sutradhar Behind
             </span>
-            {/* Step 2: Smooth 2.4s solid fill sweep + 45° 3D drop shadow overlay (delayed 600ms) */}
             <span
               className="absolute inset-0 inline-block animate-title-fill opacity-0"
               style={{
@@ -89,14 +87,13 @@ export default function Hero() {
                 animationDelay: "600ms",
               }}
             >
-              Strategic M&amp;A Solutions
+              The Sutradhar Behind
             </span>
           </div>
 
           <br />
 
           <div className="relative inline-block mt-1">
-            {/* Step 1b: Teal hollow stroke wireframe base appears first (200ms) */}
             <span
               className="inline-block animate-title-stroke opacity-0"
               style={{
@@ -105,51 +102,49 @@ export default function Hero() {
                 animationDelay: "200ms",
               }}
             >
-              For Scale &amp; Growth
+              M&amp;A, Strategic Growth &amp; Capital.
             </span>
-            {/* Step 2b: Smooth 2.4s teal solid fill sweep (delayed 800ms) */}
             <span
               className="absolute inset-0 inline-block animate-title-fill opacity-0 text-[#0F6B82]"
               style={{
                 animationDelay: "800ms",
               }}
             >
-              For Scale &amp; Growth
+              M&amp;A, Strategic Growth &amp; Capital.
             </span>
           </div>
         </h1>
 
-        <p className="text-lg sm:text-xl text-[#6C7A86] max-w-2xl font-normal leading-relaxed mb-10">
-          Premier enterprise advisory delivering transformational M&amp;A, capital raise, and strategic consulting for middle-market growth companies.
+        <p className="text-lg sm:text-xl text-[#4A5568] max-w-3xl font-medium leading-relaxed mb-4">
+          Exigo Consulting is a founder-led advisory firm for IT Services, IT Staffing and Technology businesses. We connect the right people, opportunities, capital and expertise — and stay with the story from the first conversation to the final handshake.
         </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-4 mb-14">
+        <p className="text-sm sm:text-base text-slate-500 max-w-2xl font-normal leading-relaxed mb-8">
+          Whether you are acquiring, selling, raising capital, strengthening operations or building leadership, Exigo brings sector understanding, senior attention and execution discipline to every mandate.
+        </p>
+
+        {/* CTA Button */}
+        <div className="flex flex-col sm:flex-row items-center gap-4 mb-12">
           <Link
             href="/contact"
             className="w-full sm:w-auto px-8 py-4 rounded-xl bg-[#0F6B82] hover:bg-[#155B6D] text-white font-semibold text-base transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
           >
-            <span>Schedule Consultation</span>
+            <span>Start a Confidential Conversation</span>
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-          </Link>
-          <Link
-            href="/services"
-            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-white hover:bg-neutral-50 text-[#1B2730] font-semibold text-base border border-[#E5EBEF] transition-all duration-300 shadow-sm hover:shadow flex items-center justify-center gap-2"
-          >
-            <span>Explore Services</span>
           </Link>
         </div>
 
-        {/* Highlight Trust Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8 w-full max-w-4xl border-t border-[#E5EBEF] pt-10">
+        {/* Highlight Badges */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 w-full max-w-5xl border-t border-[#E5EBEF] pt-8">
           {[
             { icon: Briefcase, label: "M&A Advisory" },
-            { icon: TrendingUp, label: "Fundraising" },
-            { icon: Award, label: "Partner-Led Advisory" },
-            { icon: ShieldCheck, label: "Confidentiality Guaranteed" },
+            { icon: TrendingUp, label: "Fundraising Advisory" },
+            { icon: Layers, label: "Business Consulting" },
+            { icon: ShieldCheck, label: "Executive Search" },
+            { icon: Award, label: "Transaction Support" },
           ].map((item, index) => (
-            <div key={index} className="flex items-center justify-center gap-2.5 text-[#1B2730] font-medium text-sm">
-              <item.icon className="w-4 h-4 text-[#0F6B82]" />
+            <div key={index} className="flex items-center justify-center gap-2 text-[#1B2730] font-medium text-xs sm:text-sm hover:text-[#0F6B82] transition-colors">
+              <item.icon className="w-4 h-4 text-[#0F6B82] shrink-0" />
               <span>{item.label}</span>
             </div>
           ))}

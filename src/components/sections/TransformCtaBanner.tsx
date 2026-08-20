@@ -62,12 +62,12 @@ export default function TransformCtaBanner() {
                 whileTap={buttonInteraction.tap}
                 className="px-8 py-4 rounded-full bg-[#0F6B82] hover:bg-[#155B6D] text-white font-bold text-base shadow-[var(--shadow-button)] flex items-center gap-2 group color-transition"
               >
-                <span>Get in Touch</span>
+                <span>Start a Confidential Conversation</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
               </motion.button>
             </Link>
             <p className="text-xs text-slate-400 mt-2 font-medium">
-              Schedule a confidential consultation
+              Exploratory, confidential, and partner-led
             </p>
           </div>
         </motion.div>

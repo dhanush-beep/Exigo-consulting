@@ -14,17 +14,18 @@ export default function Footer() {
 
   const quickLinks = [
     { label: "Mergers & Acquisitions", href: "/services/mergers-acquisitions" },
-    { label: "Fundraising Services", href: "/services/fundraising" },
+    { label: "Fundraising Advisory", href: "/services/fundraising" },
     { label: "Business Consulting", href: "/services/business-consulting" },
-    { label: "Talent Acquisition Services", href: "/services/talent-acquisition" },
-    { label: "Other Services", href: "/services/other-services" },
+    { label: "Executive Search & Talent", href: "/services/talent-acquisition" },
+    { label: "Transaction Support", href: "/services/other-services" },
   ];
 
   const companyLinks = [
     { label: "About Us", href: "/about" },
-    { label: "Our Team", href: "/about/advisors" },
-    { label: "Careers", href: "/current-opportunities" },
-    { label: "Blog", href: "/blog" },
+    { label: "Meet Rajesh Gade", href: "/about/meet-rajesh" },
+    { label: "Strategic Advisors", href: "/about/advisors" },
+    { label: "Current Opportunities", href: "/current-opportunities" },
+    { label: "Insights", href: "/blog" },
     { label: "Contact Us", href: "/contact" },
   ];
 
@@ -55,20 +56,24 @@ export default function Footer() {
               />
             </Link>
 
-            <div className="flex items-start gap-3 text-slate-300 text-xs sm:text-sm leading-relaxed">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
+              Exigo Consulting — The Sutradhar behind M&amp;A, capital, business growth and leadership for IT Services, IT Staffing and Technology companies.
+            </p>
+
+            <div className="flex items-start gap-3 text-slate-300 text-xs sm:text-sm leading-relaxed mt-1">
               <MapPin className="w-4 h-4 text-[#DE7A66] shrink-0 mt-0.5" />
               <span>
-                Level 1, Suite # 11, Tourism Plaza, Begumpet, Greenland&apos;s-Hyderabad. Telangana-India-500016.
+                Level 1, Suite #11, Tourism Plaza, Begumpet, Hyderabad, Telangana 500016, India
               </span>
             </div>
 
             <div className="flex items-center gap-3 text-slate-300 text-xs sm:text-sm">
               <Mail className="w-4 h-4 text-[#3A9FB7] shrink-0" />
               <a
-                href="mailto:ra@exigoconsulting.in"
+                href="mailto:rg@exigoconsulting.in"
                 className="hover:text-[#4CC9F0] transition-colors"
               >
-                ra@exigoconsulting.in
+                rg@exigoconsulting.in
               </a>
             </div>
 
@@ -150,10 +155,10 @@ export default function Footer() {
           {/* Column 4: Newsletter Form */}
           <div className="lg:col-span-3 flex flex-col gap-4">
             <h3 className="text-base font-bold text-white font-display mb-1">
-              Newsletter
+              The Sutradhar Brief
             </h3>
             <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
-              Get the latest news &amp; updates delivered to your inbox.
+              M&amp;A, capital and growth insights for technology business leaders.
             </p>
 
             <form onSubmit={handleSubscribe} className="relative flex items-center w-full">
@@ -175,7 +180,7 @@ export default function Footer() {
             </form>
 
             {subscribed ? (
-              <p className="text-xs text-[#4CC9F0] font-medium">Thank you for subscribing!</p>
+              <p className="text-xs text-[#4CC9F0] font-medium">Thank you for subscribing to The Sutradhar Brief!</p>
             ) : (
               <p className="text-[11px] text-slate-400">
                 We respect your privacy. <span className="underline cursor-pointer">Unsubscribe</span> at any time.

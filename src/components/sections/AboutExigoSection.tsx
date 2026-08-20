@@ -68,7 +68,7 @@ export default function AboutExigoSection() {
             element="h2"
             className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-[#1B2730] tracking-tight font-display mb-6"
           >
-            Driving Transformative Growth Through Strategic M&amp;A
+            Who We Are &amp; The &lsquo;Sutradhar&rsquo; Philosophy
           </AnimatedText>
 
           <AnimatedText
@@ -77,7 +77,7 @@ export default function AboutExigoSection() {
             delay={0.15}
             className="text-base sm:text-lg text-slate-600 leading-relaxed font-normal"
           >
-            Exigo Consulting was established to address the critical gap in mid-market corporate advisory. We bring senior-level expertise, global network, and a results-driven approach to every engagement.
+            Exigo was built on a simple belief: transactions do not succeed because two parties were introduced. They succeed when strategic intent, valuation expectations, people, diligence, timing and trust are aligned. In the Indian narrative tradition, the Sutradhar is the thread-holder — connecting every character and keeping the mandate moving toward a meaningful conclusion.
           </AnimatedText>
         </div>
 
@@ -113,11 +113,11 @@ export default function AboutExigoSection() {
                 transition={{ delay: 0.4, duration: DURATION.major, ease: APPLE_EASE }}
                 className="absolute bottom-6 left-6 right-6 p-6 rounded-2xl bg-[#0B1924]/90 backdrop-blur-md border border-white/15 text-white"
               >
-                <p className="text-3xl font-extrabold font-display tracking-tight text-white mb-1">
-                  20+
+                <p className="text-xl font-extrabold font-display tracking-tight text-[#3A9FB7] mb-1">
+                  The Sutradhar Philosophy
                 </p>
                 <p className="text-xs font-semibold uppercase tracking-wider text-slate-300">
-                  Years of Excellence in M&amp;A Advisory
+                  Connecting strategy with execution &amp; people
                 </p>
               </motion.div>
             </div>

@@ -31,10 +31,10 @@ const SERVICE_SLIDES: ServiceSlideData[] = [
   {
     id: 1,
     title: "MERGERS & ACQUISITIONS",
-    category: "SPECIALIZED ADVISORY",
-    subtitle: "Seamless Transactions & Maximized Value",
+    category: "M&A ADVISORY",
+    subtitle: "The Sutradhar Across the Deal",
     description:
-      "Welcome to Exigo Consulting, your trusted partner for seamless transactions and maximized value. Our team specializes in connecting buyers and sellers to structure optimal M&A deals.",
+      "End-to-end buy-side and sell-side M&A advisory for IT Services, IT Staffing and Technology companies — from opportunity identification, positioning and valuation through negotiations, diligence, structuring and closure.",
     bgColor: "#0F6B82", // Deep Teal
     textColor: "#FFFFFF",
     accentColor: "#DE7A66",
@@ -43,27 +43,14 @@ const SERVICE_SLIDES: ServiceSlideData[] = [
   },
   {
     id: 2,
-    title: "BUSINESS CONSULTING",
-    category: "SPECIALIZED ADVISORY",
-    subtitle: "Operational Excellence & Build Operate Transfer (BOT)",
+    title: "FUNDRAISING ADVISORY",
+    category: "CAPITAL SCALE",
+    subtitle: "Capital Strategy & Investor Positioning",
     description:
-      "Welcome to Exigo Consulting, where we redefine operational excellence through strategic insights and innovative solutions. Specializing in Build Operate Transfer (BOT) models.",
+      "Capital strategy, investor positioning, valuation support and curated introductions to investors who understand technology, services and staffing business models.",
     bgColor: "#102A35", // Deep Navy
     textColor: "#FFFFFF",
-    accentColor: "#0F6B82",
-    href: "/services/business-consulting",
-    icon: Coins,
-  },
-  {
-    id: 3,
-    title: "FUND RAISING",
-    category: "SPECIALIZED ADVISORY",
-    subtitle: "Strategic Capital & Investor Network Access",
-    description:
-      "Welcome to Exigo Consulting, your strategic ally in the IT services and staffing industry. Harness the power of our specialized expertise to access a vast network of capital sources.",
-    bgColor: "#DE7A66", // Coral Accent
-    textColor: "#FFFFFF",
-    accentColor: "#FFE600",
+    accentColor: "#3A9FB7",
     href: "/services/fundraising",
     icon: TrendingUp,
   },
