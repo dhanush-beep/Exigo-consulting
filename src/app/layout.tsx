@@ -5,6 +5,7 @@ import TopBar from "@/components/layout/TopBar";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import FloatingChatWidget from "@/components/ui/FloatingChatWidget";
+import WhatsAppWidget from "@/components/ui/WhatsAppWidget";
 import PageTransitionWrapper from "@/components/motion/PageTransitionWrapper";
 import { siteConfig } from "@/lib/metadata";
 
@@ -56,6 +57,7 @@ export default function RootLayout({
         </main>
         <Footer />
         <FloatingChatWidget />
+        <WhatsAppWidget />
       </body>
     </html>
   );
