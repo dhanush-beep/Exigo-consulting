@@ -14,7 +14,7 @@ export default function FloatingChatWidget() {
   };
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex flex-col items-end pointer-events-auto">
+    <div className="fixed bottom-6 left-6 z-50 flex flex-col items-start pointer-events-auto">
       {/* Interactive Modal / Popup */}
       {isOpen && (
         <div className="mb-4 w-[360px] sm:w-[400px] bg-white rounded-[24px] shadow-[0_16px_50px_-10px_rgba(15,107,130,0.25)] border border-[#E5EBEF] overflow-hidden animate-[fade-scale-up_0.35s_cubic-bezier(0.34,1.56,0.64,1)_both]">
