@@ -163,6 +163,7 @@ export default function Footer() {
 
             <form onSubmit={handleSubscribe} className="relative flex items-center w-full">
               <input
+                suppressHydrationWarning
                 type="email"
                 required
                 value={email}
@@ -171,6 +172,7 @@ export default function Footer() {
                 className="w-full bg-white text-slate-900 placeholder:text-slate-400 rounded-xl py-3 pl-4 pr-12 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#3A9FB7]"
               />
               <button
+                suppressHydrationWarning
                 type="submit"
                 className="absolute right-1.5 top-1/2 -translate-y-1/2 w-9 h-9 rounded-lg bg-[#0F6B82] hover:bg-[#155B6D] text-white flex items-center justify-center transition-colors shadow-sm"
                 aria-label="Subscribe to Newsletter"
