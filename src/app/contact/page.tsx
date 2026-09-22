@@ -76,7 +76,7 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              <div className="flex gap-4 p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200">
+              {/* <div className="flex gap-4 p-5 rounded-2xl bg-[#FAFBFD] border border-slate-200">
                 <div className="w-10 h-10 rounded-xl bg-[#0F6B82]/10 text-[#0F6B82] flex items-center justify-center shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
@@ -86,7 +86,7 @@ export default function ContactPage() {
                     Monday–Friday, 10:00 AM–7:00 PM (IST)
                   </p>
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

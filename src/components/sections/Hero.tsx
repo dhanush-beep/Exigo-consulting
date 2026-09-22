@@ -135,18 +135,18 @@ export default function Hero() {
         </div>
 
         {/* Highlight Badges */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 sm:gap-6 w-full max-w-5xl border-t border-[#E5EBEF] pt-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6 w-full max-w-5xl border-t border-[#E5EBEF] pt-8">
           {[
-            { icon: Briefcase, label: "M&A Advisory" },
-            { icon: TrendingUp, label: "Fundraising Advisory" },
-            { icon: Layers, label: "Business Consulting" },
-            { icon: ShieldCheck, label: "Executive Search" },
-            { icon: Award, label: "Transaction Support" },
+            { icon: Briefcase, label: "M&A Advisory", href: "/services/mergers-acquisitions" },
+            { icon: TrendingUp, label: "Fundraising Advisory", href: "/services/fundraising" },
+            { icon: Layers, label: "Business Consulting", href: "/services/business-consulting" },
+            // { icon: ShieldCheck, label: "Executive Search", href: "/services/talent-acquisition" },
+            { icon: Award, label: "Talent Acquisition", href: "/services/talent-acquisition" },
           ].map((item, index) => (
-            <div key={index} className="flex items-center justify-center gap-2 text-[#1B2730] font-medium text-xs sm:text-sm hover:text-[#0F6B82] transition-colors">
-              <item.icon className="w-4 h-4 text-[#0F6B82] shrink-0" />
+            <Link href={item.href} key={index} className="flex items-center justify-center gap-2 text-[#1B2730] font-medium text-xs sm:text-sm hover:text-[#0F6B82] transition-colors group">
+              <item.icon className="w-4 h-4 text-[#0F6B82] shrink-0 group-hover:scale-110 transition-transform" />
               <span>{item.label}</span>
-            </div>
+            </Link>
           ))}
         </div>
       </Container>

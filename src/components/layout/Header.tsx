@@ -138,6 +138,7 @@ export default function Header() {
               >
                 {link.dropdown ? (
                   <button
+                    suppressHydrationWarning
                     className={cn(
                       "flex items-center gap-1 text-[14px] font-medium transition-colors hover:text-[#0F6B82] py-2 px-3 rounded-lg hover:bg-[#F7F9FA]",
                       pathname.startsWith(link.href) ? "text-[#0F6B82]" : "text-[#1B2730]"
@@ -183,10 +184,11 @@ export default function Header() {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Link href="/contact">
-              <button className="inline-flex items-center justify-center px-6 py-2.5 bg-[#EB6A4C] hover:bg-[#d8583a] text-white text-sm font-semibold rounded-md shadow-sm transition-all duration-300">
-                Contact Us
-              </button>
+            <Link 
+              href="/contact"
+              className="inline-flex items-center justify-center px-6 py-2.5 bg-[#EB6A4C] hover:bg-[#d8583a] text-white text-sm font-semibold rounded-md shadow-sm transition-all duration-300"
+            >
+              Contact Us
             </Link>
           </div>
 
@@ -239,11 +241,12 @@ export default function Header() {
                   )}
                 </div>
               ))}
-              <Link href="/contact" className="mt-6">
-                <button className="w-full justify-center inline-flex items-center gap-2 px-7 py-4 bg-[#0F6B82] text-white text-base font-medium rounded-full shadow-[0_4px_14px_0_rgba(15,107,130,0.3)] hover:bg-[#155B6D] transition-all">
-                  Get Consultation
-                  <ArrowUpRight className="w-4 h-4" />
-                </button>
+              <Link 
+                href="/contact" 
+                className="mt-6 w-full justify-center inline-flex items-center gap-2 px-7 py-4 bg-[#0F6B82] text-white text-base font-medium rounded-full shadow-[0_4px_14px_0_rgba(15,107,130,0.3)] hover:bg-[#155B6D] transition-all"
+              >
+                Get Consultation
+                <ArrowUpRight className="w-4 h-4" />
               </Link>
             </Container>
           </div>
