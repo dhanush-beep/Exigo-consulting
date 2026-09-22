@@ -4,7 +4,7 @@ import Image from "next/image";
 import { constructMetadata } from "@/lib/metadata";
 import Container from "@/components/ui/Container";
 import { blogPosts } from "@/lib/data/blogPosts";
-import { ChevronRight, ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 
 import Blog3DCoverFlow from "@/components/sections/Blog3DCoverFlow";
 
@@ -25,28 +25,6 @@ export default function BlogPage() {
 
   return (
     <div className="bg-[#FAFBFD] min-h-screen select-none pb-24">
-      {/* 1. Hero */}
-      <section className="relative py-20 bg-[#07131D] text-white overflow-hidden">
-        <Container className="relative z-10 text-center flex flex-col items-center">
-          <span className="text-xs font-extrabold uppercase tracking-widest text-[#3A9FB7] mb-3 block">
-            EXIGO INSIGHTS
-          </span>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold font-display tracking-tight text-white mb-4">
-            From the Sutradhar’s Desk
-          </h1>
-          <p className="text-sm sm:text-base text-slate-300 max-w-3xl leading-relaxed mb-6">
-            Perspectives from the intersection of founders, buyers, investors and operators — grounded in real conversations around M&amp;A, capital, talent and growth.
-          </p>
-
-          <div className="flex items-center gap-2 text-xs sm:text-sm text-slate-300 font-medium">
-            <Link href="/" className="hover:text-[#4CC9F0] transition-colors">
-              Home
-            </Link>
-            <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
-            <span className="text-white font-semibold">Insights</span>
-          </div>
-        </Container>
-      </section>
 
       {/* 2. Interactive 3D Cover Flow Showcase */}
       <section className="py-16 bg-white border-b border-slate-200/80">

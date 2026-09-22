@@ -125,6 +125,7 @@ export default function FloatingChatWidget() {
                 </div>
                 <div>
                   <input
+                    suppressHydrationWarning
                     type="text"
                     required
                     placeholder="Your Name"
@@ -135,6 +136,7 @@ export default function FloatingChatWidget() {
                 </div>
                 <div>
                   <input
+                    suppressHydrationWarning
                     type="email"
                     required
                     placeholder="Corporate Email"
@@ -179,6 +181,7 @@ export default function FloatingChatWidget() {
 
       {/* Floating Trigger Button */}
       <button
+        suppressHydrationWarning
         onClick={() => setIsOpen(!isOpen)}
         className="relative group flex items-center gap-3 bg-[#102A35] hover:bg-[#153A47] text-white p-3.5 pl-4 rounded-full shadow-[0_8px_30px_rgba(15,107,130,0.35)] border border-[#0F6B82]/30 cursor-pointer transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] hover:scale-110 active:scale-95"
         aria-label="Open Executive Consultation Chat Desk"

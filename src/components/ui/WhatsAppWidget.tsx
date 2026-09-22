@@ -82,6 +82,7 @@ export default function WhatsAppWidget() {
                     <User className="w-4 h-4" />
                   </div>
                   <input
+                    suppressHydrationWarning
                     type="text"
                     required
                     placeholder="Your Name"
@@ -95,6 +96,7 @@ export default function WhatsAppWidget() {
                     <Mail className="w-4 h-4" />
                   </div>
                   <input
+                    suppressHydrationWarning
                     type="email"
                     required
                     placeholder="Your Email"
@@ -165,6 +167,7 @@ export default function WhatsAppWidget() {
 
       {/* Floating Action Button */}
       <button
+        suppressHydrationWarning
         onClick={() => setIsOpen(!isOpen)}
         className="relative group flex items-center justify-center w-14 h-14 bg-[#25D366] text-white rounded-full shadow-[0_8px_30px_rgba(37,211,102,0.4)] transition-transform duration-300 hover:scale-110 active:scale-95 z-10"
         aria-label="Open WhatsApp Chat"
