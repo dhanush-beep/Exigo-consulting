@@ -55,7 +55,7 @@ export default function TalentAcquisitionPage() {
         <Container className="relative z-10">
           <div className="max-w-3xl">
             <span className="text-[#38BDF8] text-xs font-bold uppercase tracking-[0.2em] mb-3 block">
-              TALENT ADVISORY
+              EXECUTIVE SEARCH &amp; TALENT ACQUISITION
             </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white leading-tight font-display mb-6">
               The Right People Are Part of the Growth Story

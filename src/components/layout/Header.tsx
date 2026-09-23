@@ -46,7 +46,7 @@ export default function Header() {
         { label: "Mergers & Acquisitions", href: "/services/mergers-acquisitions" },
         { label: "Fundraising", href: "/services/fundraising" },
         { label: "Business Consulting", href: "/services/business-consulting" },
-        { label: "Talent Acquisition", href: "/services/talent-acquisition" },
+        { label: "Executive Search & Talent Acquisition", href: "/services/talent-acquisition" },
         { label: "Other Services", href: "/services/other-services" }
       ]
     },

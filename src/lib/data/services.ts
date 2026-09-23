@@ -64,7 +64,7 @@ export const services: Service[] = [
   {
     id: "talent-acquisition",
     slug: "talent-acquisition",
-    title: "Executive Search & Talent Advisory",
+    title: "Executive Search & Talent Acquisition",
     description: "Leadership and specialist hiring for technology businesses, including Practice Heads, Delivery Leaders, Country Heads, Revenue Leaders and CXOs, supported by deep sector networks.",
     icon: "Users",
     features: [

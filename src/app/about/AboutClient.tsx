@@ -25,7 +25,7 @@ export default function AboutClient() {
       desc: "Growth, operational improvement, market entry (GTM), BOT and transaction readiness."
     },
     {
-      title: "Executive Search & Talent Advisory",
+      title: "Executive Search & Talent Acquisition",
       desc: "Leadership and critical hiring for technology-led organizations."
     },
     {

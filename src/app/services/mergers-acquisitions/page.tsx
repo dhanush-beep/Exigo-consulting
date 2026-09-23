@@ -41,7 +41,7 @@ export default function MergersAcquisitionsPage() {
   const relatedServices = [
     { label: "Fundraising Advisory", href: "/services/fundraising" },
     { label: "Business Consulting", href: "/services/business-consulting" },
-    { label: "Executive Search & Talent", href: "/services/talent-acquisition" },
+    { label: "Executive Search & Talent Acquisition", href: "/services/talent-acquisition" },
     { label: "Transaction Support", href: "/services/other-services" }
   ];
 
