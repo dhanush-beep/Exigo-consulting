@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { X, Send, User, Mail, Briefcase, ChevronRight, CheckCircle2 } from "lucide-react";
 
-type ServiceType = "Mergers & Acquisitions" | "Fundraising" | "Business Consulting" | "Talent Acquisitions" | "Other Services";
+type ServiceType = "Mergers & Acquisitions" | "Fundraising" | "Business Consulting" | "Executive Search & Talent Acquisition" | "Other Services";
 
 export default function WhatsAppWidget() {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,7 +14,7 @@ export default function WhatsAppWidget() {
     "Mergers & Acquisitions",
     "Fundraising",
     "Business Consulting",
-    "Talent Acquisitions",
+    "Executive Search & Talent Acquisition",
     "Other Services"
   ];
 

@@ -45,7 +45,7 @@ export default function ServicesAdvisoryGrid() {
     },
     {
       icon: ShieldCheck,
-      title: "Executive Search & Talent",
+      title: "Executive Search & Talent Acquisition",
       description: "Leadership and critical hiring for technology-led organizations.",
       href: "/services/talent-acquisition",
     },

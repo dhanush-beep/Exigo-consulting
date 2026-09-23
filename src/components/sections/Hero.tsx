@@ -141,7 +141,7 @@ export default function Hero() {
             { icon: TrendingUp, label: "Fundraising Advisory", href: "/services/fundraising" },
             { icon: Layers, label: "Business Consulting", href: "/services/business-consulting" },
             // { icon: ShieldCheck, label: "Executive Search", href: "/services/talent-acquisition" },
-            { icon: Award, label: "Talent Acquisition", href: "/services/talent-acquisition" },
+            { icon: Award, label: "Executive Search & Talent Acquisition", href: "/services/talent-acquisition" },
           ].map((item, index) => (
             <Link href={item.href} key={index} className="flex items-center justify-center gap-2 text-[#1B2730] font-medium text-xs sm:text-sm hover:text-[#0F6B82] transition-colors group">
               <item.icon className="w-4 h-4 text-[#0F6B82] shrink-0 group-hover:scale-110 transition-transform" />
