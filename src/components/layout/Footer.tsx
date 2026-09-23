@@ -16,7 +16,7 @@ export default function Footer() {
     { label: "Mergers & Acquisitions", href: "/services/mergers-acquisitions" },
     { label: "Fundraising Advisory", href: "/services/fundraising" },
     { label: "Business Consulting", href: "/services/business-consulting" },
-    { label: "Executive Search & Talent", href: "/services/talent-acquisition" },
+    { label: "Executive Search & Talent Acquisition", href: "/services/talent-acquisition" },
     { label: "Transaction Support", href: "/services/other-services" },
   ];
 
@@ -45,7 +45,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 mb-14">
           
           {/* Column 1: Brand & Headquarters Info */}
-          <div className="lg:col-span-4 flex flex-col gap-4">
+          <div className="lg:col-span-3 flex flex-col gap-4">
             <Link href="/" className="inline-block group transition-transform duration-300 hover:scale-[1.02] mb-2">
               <Image
                 src="/logo.png"
@@ -114,7 +114,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-4">
             <h3 className="text-base font-bold text-white font-display mb-5">
               Quick Links
             </h3>
@@ -123,9 +123,9 @@ export default function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-slate-300 hover:text-[#4CC9F0] text-xs sm:text-sm flex items-center gap-1.5 transition-colors group"
+                    className="text-slate-300 hover:text-[#4CC9F0] text-xs sm:text-sm flex items-center gap-1.5 transition-colors group whitespace-nowrap"
                   >
-                    <ChevronRight className="w-3.5 h-3.5 text-[#3A9FB7] group-hover:translate-x-0.5 transition-transform" />
+                    <ChevronRight className="w-3.5 h-3.5 text-[#3A9FB7] group-hover:translate-x-0.5 transition-transform shrink-0" />
                     <span>{link.label}</span>
                   </Link>
                 </li>

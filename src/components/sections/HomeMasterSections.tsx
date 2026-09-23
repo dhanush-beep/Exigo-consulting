@@ -78,7 +78,7 @@ export function HowWeHelp() {
       icon: Layers
     },
     {
-      title: "Executive Search & Talent Advisory",
+      title: "Executive Search & Talent Acquisition",
       desc: "Leadership and specialist hiring for technology businesses, including Practice Heads, Delivery Leaders, Country Heads, Revenue Leaders and CXOs, supported by deep sector networks.",
       href: "/services/talent-acquisition",
       icon: Users
