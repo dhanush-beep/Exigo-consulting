@@ -14,19 +14,19 @@ export const metadata = constructMetadata({
 });
 
 export default function BlogPage() {
-  const editorialPillars = [
+  /* const editorialPillars = [
     { title: "M&A & Exit Readiness", desc: "When to sell, how buyers think, and how to prepare." },
     { title: "Buy-Side Strategy", desc: "Acquisition theses, target screening and integration thinking." },
     { title: "IT Services & Staffing Economics", desc: "Utilization, bench, client concentration, margins and valuation drivers." },
     { title: "Fundraising", desc: "Investor readiness, capital strategy and realistic positioning." },
     { title: "GCC & Global Expansion", desc: "Talent, market entry and strategic acquisition themes." },
     { title: "The Sutradhar Notes", desc: "Founder-led observations on negotiations, relationships, timing and the human side of transactions." }
-  ];
+  ]; */
 
   return (
     <div className="bg-[#FAFBFD] min-h-screen select-none pb-24">
-      {/* 1. Hero */}
-      <section className="relative py-20 bg-[#07131D] text-white overflow-hidden">
+      {/* 1. Hero - Commented out as requested */}
+      {/* <section className="relative py-20 bg-[#07131D] text-white overflow-hidden">
         <Container className="relative z-10 text-center flex flex-col items-center">
           <span className="text-xs font-extrabold uppercase tracking-widest text-[#3A9FB7] mb-3 block">
             EXIGO INSIGHTS
@@ -46,10 +46,10 @@ export default function BlogPage() {
             <span className="text-white font-semibold">Insights</span>
           </div>
         </Container>
-      </section>
+      </section> */}
 
-      {/* 2. Interactive 3D Cover Flow Showcase */}
-      <section className="py-16 bg-white border-b border-slate-200/80">
+      {/* 2. Interactive 3D Cover Flow Showcase - Commented out as requested */}
+      {/* <section className="py-16 bg-white border-b border-slate-200/80">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-6">
             <span className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#0F6B82] mb-2 block">
@@ -62,10 +62,10 @@ export default function BlogPage() {
 
           <Blog3DCoverFlow posts={blogPosts} />
         </Container>
-      </section>
+      </section> */}
 
-      {/* 3. Editorial Pillars */}
-      <section className="py-16 bg-white border-b border-slate-200/80">
+      {/* 3. Editorial Pillars - Commented out as requested */}
+      {/* <section className="py-16 bg-white border-b border-slate-200/80">
         <Container>
           <div className="text-center max-w-2xl mx-auto mb-10">
             <span className="text-xs font-extrabold tracking-[0.2em] uppercase text-[#0F6B82] mb-2 block">
@@ -86,7 +86,7 @@ export default function BlogPage() {
             ))}
           </div>
         </Container>
-      </section>
+      </section> */}
 
       {/* 3. Main Articles List */}
       <section className="pt-16">
