@@ -4,7 +4,7 @@ import Image from "next/image";
 import { constructMetadata } from "@/lib/metadata";
 import Container from "@/components/ui/Container";
 import { blogPosts } from "@/lib/data/blogPosts";
-import { ChevronRight, ArrowRight, BookOpen } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 
 import Blog3DCoverFlow from "@/components/sections/Blog3DCoverFlow";
 
